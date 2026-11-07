@@ -100,6 +100,14 @@ Want a site preserved but don't want to run this yourself? Open an issue with th
 **Request a site archive** form. Requests are reviewed manually and may be declined
 (size, legality, or the daily quota).
 
+## Credits
+
+If you share, fork or build on this project, please **keep the copyright notice**
+(the [MIT license](LICENSE) requires it) and, if you can, **link back to this
+repository** so others can find the original. If you write about it or use it for a
+project you publish, a mention is appreciated. Using the tool to archive sites needs
+no credit.
+
 ## License
 
 MIT, see [LICENSE](LICENSE).
