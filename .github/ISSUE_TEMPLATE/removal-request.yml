@@ -1,0 +1,41 @@
+name: Removal request
+description: Ask for a site, URL or your personal information to be removed from this repository.
+title: "[Removal] "
+labels: ["removal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Removal requests are honored. **This issue is public**, so do not paste private
+        information; if you need to share something sensitive, say so and the maintainer
+        will find another way to talk to you.
+
+        What this can do: remove URLs and details from **this repository** (including
+        the `archived-sites/` records and, for personal data, the repository history).
+
+        What this cannot do: delete snapshots already on web.archive.org. Those belong to
+        the Internet Archive and have to be removed through them (see their policies at
+        archive.org). The maintainer will not object to such a request.
+  - type: input
+    id: what
+    attributes:
+      label: What should be removed?
+      description: A site, a specific URL, or the name/username that appears in a list.
+      placeholder: https://example.com/profile/your-username
+    validations:
+      required: true
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who are you?
+      options:
+        - I own the site
+        - The information is about me
+        - Someone else (explain below)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Anything else?
+      description: Optional. Where the information appears, or why you are asking.

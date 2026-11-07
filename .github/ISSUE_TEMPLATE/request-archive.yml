@@ -1,0 +1,57 @@
+name: Request a site archive
+description: Ask the maintainer to preserve a public website in the Wayback Machine.
+title: "[Archive request] "
+labels: ["request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Requests are reviewed manually and may be declined (size, legality, daily quota).
+        **This issue is public** -- don't include anything private.
+
+        The maintainer decides case by case and may decline or close any request,
+        with or without explanation. Only public content is accepted; anything
+        personal, private or legally doubtful will be refused. If a site owner asks
+        for removal, it will be honored.
+  - type: input
+    id: url
+    attributes:
+      label: Site or section URL
+      description: Full URL, for example https://example.com or https://example.com/docs
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: What should be saved?
+      options:
+        - The whole site
+        - Only the section in the URL above
+        - Only the listed pages
+    validations:
+      required: true
+  - type: checkboxes
+    id: files
+    attributes:
+      label: Include downloadable files?
+      options:
+        - label: PDFs and documents
+        - label: Installers / archives (exe, zip, dmg, ...)
+        - label: Audio / video (mp3, mp4)
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter?
+      description: For example "the site is shutting down on 2026-12-01".
+    validations:
+      required: true
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Rules
+      options:
+        - label: The site is public (no login needed) and contains no private data.
+          required: true
+        - label: I understand the request may be declined or take several days because of the Archive's daily limits.
+          required: true

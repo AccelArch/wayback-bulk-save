@@ -1,0 +1,27 @@
+# Secrets -- never commit
+config.json
+.env
+*.key
+
+# Per-site working folders and state created by the script
+saved_urls_*.json
+pending_jobs_*.json
+url_list_*.json
+crawl_state_*.json
+firecrawl_map_*.json
+file_sizes_*.json
+skipped_too_big_*.json
+timeline_*.json
+timeline_*.txt
+urls_*.txt
+urls.txt
+urls.csv
+url.csv
+url_list.txt
+
+# Local notes / python noise
+NOTES-local.md
+LEIA-ANTES.pt-BR.md
+__pycache__/
+*.pyc
+.venv/
