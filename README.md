@@ -1,4 +1,13 @@
-# Wayback Bulk Save
+<p align="center">
+  <img src="docs/images/banner.svg" alt="Wayback Bulk Save: save whole websites, pages and files, to the Wayback Machine" width="100%">
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-3fb950" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/python-3.9%2B-3776ab" alt="Python 3.9+">
+  <img src="https://img.shields.io/badge/runs%20on-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Termux-8957e5" alt="Runs on Windows, Linux, macOS and Termux">
+  <a href="docs/GUIDE.md"><img src="https://img.shields.io/badge/docs-guide-58a6ff" alt="Read the guide"></a>
+</p>
 
 Save an entire website (pages **and** downloadable files) to the
 [Internet Archive's Wayback Machine](https://web.archive.org) using Save Page Now.
@@ -6,6 +15,12 @@ Save an entire website (pages **and** downloadable files) to the
 Give it a site URL. It finds the pages (sitemap, crawl, a URL list, or a
 [Firecrawl](https://www.firecrawl.dev) map), queues them all, confirms every capture,
 and keeps going across days if the Archive's daily limits stop it.
+
+<p align="center">
+  <img src="docs/images/terminal.svg" alt="Example terminal output: the script finds the sitemap, queues each URL and confirms every capture" width="760">
+  <br>
+  <sub>Example output (illustrative).</sub>
+</p>
 
 ## Features
 

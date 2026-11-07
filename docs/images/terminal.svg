@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 406" role="img" aria-labelledby="t d">
+  <title id="t">Example terminal output</title>
+  <desc id="d">Illustrative example of wayback_bulk_save.py saving a small site: it finds the sitemap, queues each URL, then confirms every capture.</desc>
+
+  <rect width="800" height="406" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <path d="M0 12a12 12 0 0 1 12-12h776a12 12 0 0 1 12 12v24H0z" fill="#161b22"/>
+  <circle cx="26" cy="19" r="6" fill="#ff5f56"/>
+  <circle cx="48" cy="19" r="6" fill="#ffbd2e"/>
+  <circle cx="70" cy="19" r="6" fill="#27c93f"/>
+  <text x="400" y="24" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">wayback_bulk_save.py (example)</text>
+
+  <g font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" xml:space="preserve">
+    <text x="24" y="66"  fill="#e6edf3"><tspan fill="#8b949e">$ </tspan>python wayback_bulk_save.py</text>
+    <text x="24" y="92"  fill="#58a6ff">============================================================</text>
+    <text x="24" y="110" fill="#58a6ff">   WAYBACK BULK SAVE</text>
+    <text x="24" y="128" fill="#58a6ff">============================================================</text>
+    <text x="24" y="156" fill="#e6edf3"><tspan fill="#58a6ff">Paste the site URL here: </tspan>https://example.com</text>
+    <text x="24" y="178" fill="#e6edf3"><tspan fill="#58a6ff">Choose [1/2/3/4] (Enter = 1): </tspan>1</text>
+    <text x="24" y="204" fill="#3fb950">Sitemap found at https://example.com/sitemap.xml with 3 URLs.</text>
+    <text x="24" y="230" fill="#e6edf3"><tspan fill="#58a6ff">[1/3 - 33%]</tspan> Queueing: https://example.com/</text>
+    <text x="24" y="250" fill="#e6edf3"><tspan fill="#58a6ff">[2/3 - 66%]</tspan> Queueing: https://example.com/about</text>
+    <text x="24" y="270" fill="#e6edf3"><tspan fill="#58a6ff">[3/3 - 100%]</tspan> Queueing: https://example.com/guide.pdf</text>
+    <text x="24" y="298" fill="#58a6ff">--- Verifying: 3 job(s) ---</text>
+    <text x="24" y="320" fill="#e6edf3">  [1/3] https://example.com/ -&gt; <tspan fill="#3fb950">OK ✓</tspan></text>
+    <text x="24" y="340" fill="#e6edf3">  [2/3] https://example.com/about -&gt; <tspan fill="#3fb950">OK ✓</tspan></text>
+    <text x="24" y="360" fill="#e6edf3">  [3/3] https://example.com/guide.pdf -&gt; <tspan fill="#3fb950">OK ✓</tspan></text>
+    <text x="24" y="382" fill="#58a6ff">Finished: 3/3 saved successfully (cumulative total).</text>
+  </g>
+</svg>
