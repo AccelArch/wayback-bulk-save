@@ -205,6 +205,9 @@ DELAY_SECONDS = 14        # pause between each save request (avoids rate limitin
 SPN_POLL_INTERVAL_SECONDS = 15    # pause between bulk verification rounds
 SPN_POLL_MAX_WAIT_MINUTES = 30    # max time waiting for the WHOLE batch to confirm (not per URL)
 SPN_RETRY_ATTEMPTS = 1            # how many times to resend URLs that failed / were not confirmed
+SPN_VERIFY_PROGRESS_EVERY = 25    # show a progress line every N status checks
+SPN_VERIFY_ERROR_STREAK = 5       # this many failed checks in a row = the Archive is refusing us
+SPN_VERIFY_MAX_PAUSES = 6         # pauses (2, 4, 8, 16, 30, 30 min) before giving up for now
 
 CAPTURE_SCREENSHOT = False   # takes a screenshot of each saved page (like the browser extension does)
 CAPTURE_OUTLINKS = False    # False because this script already maps every page via
@@ -941,10 +944,17 @@ def check_job_status_once(job_id, access_key, secret_key):
         return False, False, f"error checking status ({e})"
 
 
+class VerificationBlocked(Exception):
+    """The Archive kept refusing the status checks, even after several pauses."""
+
+
 def verify_all_jobs(submitted, access_key, secret_key,
                      poll_interval=SPN_POLL_INTERVAL_SECONDS,
                      max_wait_minutes=SPN_POLL_MAX_WAIT_MINUTES,
-                     status_stagger_seconds=1, on_resolved=None, progress_every=100):
+                     status_stagger_seconds=1, on_resolved=None,
+                     progress_every=SPN_VERIFY_PROGRESS_EVERY,
+                     error_streak_limit=SPN_VERIFY_ERROR_STREAK,
+                     max_block_pauses=SPN_VERIFY_MAX_PAUSES):
     """
     Verifies, IN BULK, all the jobs queued in the submission phase, in rounds:
     in each round it checks the status of ALL jobs still pending (one after the
@@ -969,6 +979,9 @@ def verify_all_jobs(submitted, access_key, secret_key,
     resolved = {}
     started = time.time()
     passes = 0
+    paused_total = 0   # seconds spent waiting because the Archive was refusing connections
+    error_streak = 0   # failed checks in a row (reset by any real answer)
+    block_pauses = 0   # pauses taken in a row, with no real answer in between
 
     # One pass checks every pending job once (about 1-2 s per job), so a big batch takes
     # a long time. Say so up front, otherwise a silent first pass looks like a freeze.
@@ -983,9 +996,15 @@ def verify_all_jobs(submitted, access_key, secret_key,
         still_pending = []
         confirmed = failed = 0
         check_errors = {}  # reason -> how many checks failed for that reason
+        stopped_early = False
 
         for idx, item in enumerate(pending, 1):
             is_resolved, ok, info = check_job_status_once(item["job_id"], access_key, secret_key)
+            if (not is_resolved) and info.startswith("error checking status"):
+                error_streak += 1
+            else:
+                error_streak = 0
+                block_pauses = 0
             if is_resolved:
                 resolved[item["job_id"]] = (ok, info)
                 confirmed += 1 if ok else 0
@@ -1003,11 +1022,37 @@ def verify_all_jobs(submitted, access_key, secret_key,
                         print(c_warn(f"  !! {info}"))
                     check_errors[info] = check_errors.get(info, 0) + 1
 
+            # Several failed checks in a row: the Archive is refusing or limiting this
+            # connection. Hammering it (1 check per second) only makes that worse, so
+            # pause, with growing waits, and start a new pass afterwards. The jobs
+            # stay pending; nothing is marked as failed because of this.
+            if error_streak >= error_streak_limit:
+                block_pauses += 1
+                if block_pauses > max_block_pauses:
+                    raise VerificationBlocked(info)
+                wait = min(120 * 2 ** (block_pauses - 1), 1800)
+                print(c_warn(f"\n  !! {error_streak} status checks failed in a row (last: {info})."))
+                print(c_warn(f"     The Archive may be limiting this connection. Pausing {wait // 60} min "
+                             f"before trying again ({block_pauses}/{max_block_pauses}). "
+                             f"Stopping the script now is safe: unconfirmed jobs are kept."))
+                time.sleep(wait)
+                paused_total += wait
+                error_streak = 0
+                still_pending.extend(pending[idx:])  # not checked yet -> next pass
+                stopped_early = True
+                break
+
             if progress_every and idx % progress_every == 0 and idx != total:
                 print(c_dim(f"     .. checked {idx}/{total}: {confirmed} confirmed, {failed} failed, "
                             f"{len(still_pending)} not confirmed yet"))
             if status_stagger_seconds:
                 time.sleep(status_stagger_seconds)
+
+        if stopped_early:
+            pending = still_pending
+            print(c_dim(f"  Pass {passes} stopped early ({confirmed} confirmed so far). "
+                        f"Starting a new pass with the {len(pending)} job(s) left."))
+            continue
 
         pending = still_pending
         print(c_dim(f"  Pass {passes} done: {total} checked -> {confirmed} confirmed, "
@@ -1029,7 +1074,7 @@ def verify_all_jobs(submitted, access_key, secret_key,
 
         # Real elapsed time, not the sum of the waits. Always do at least 2 full passes,
         # so a huge batch is not cut off in the middle of the first one.
-        elapsed = time.time() - started
+        elapsed = time.time() - started - paused_total  # waiting out a block does not count
         if elapsed >= max_wait_minutes * 60 and passes >= 2:
             print(c_warn(f"\n  !! Overall verification timeout ({max_wait_minutes} min): "
                   f"{len(pending)} job(s) are still not confirmed and will be marked as failed "
@@ -1931,8 +1976,17 @@ def _process_site_inner():
 
         label = "Verifying" if attempt == 0 else f"Verifying (attempt {attempt + 1})"
         print(c_title(f"\n--- {label}: {len(remaining_to_verify)} job(s) ---\n"))
-        job_results = verify_all_jobs(remaining_to_verify, ACCESS_KEY, SECRET_KEY,
-                                       on_resolved=on_job_resolved)
+        try:
+            job_results = verify_all_jobs(remaining_to_verify, ACCESS_KEY, SECRET_KEY,
+                                           on_resolved=on_job_resolved)
+        except VerificationBlocked as e:
+            print(c_err("\nThe Archive keeps refusing the status checks, so these jobs could not "
+                        "be verified for now."))
+            print(c_err(f"  Last error: {e}"))
+            print(c_warn("  Nothing was lost: the unconfirmed jobs are kept in the pending_jobs "
+                         "file. Run this script again later (in an hour or more) and it will "
+                         "pick up from here. Nothing was marked as failed."))
+            return
 
         failed_items = []
         for item in remaining_to_verify:
