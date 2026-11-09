@@ -208,6 +208,7 @@ SPN_RETRY_ATTEMPTS = 1            # how many times to resend URLs that failed / 
 SPN_VERIFY_PROGRESS_EVERY = 25    # show a progress line every N status checks
 SPN_VERIFY_ERROR_STREAK = 5       # this many failed checks in a row = the Archive is refusing us
 SPN_VERIFY_MAX_PAUSES = 6         # pauses (2, 4, 8, 16, 30, 30 min) before giving up for now
+SPN_STUCK_JOB_HOURS = 3           # saved jobs older than this that are all still "pending" are stuck
 
 CAPTURE_SCREENSHOT = False   # takes a screenshot of each saved page (like the browser extension does)
 CAPTURE_OUTLINKS = False    # False because this script already maps every page via
@@ -1091,6 +1092,37 @@ def verify_all_jobs(submitted, access_key, secret_key,
     return resolved
 
 
+def jobs_look_stuck(jobs, access_key, secret_key, sample_size=8, delay_seconds=2):
+    """Checks a small sample of OLD jobs, slowly. The Archive normally finishes a
+    capture in minutes, so jobs that are still "pending" hours later are stuck and
+    will probably never finish.
+
+    Returns True  if every sampled job is still pending (they look stuck),
+            False if at least one finished or failed (normal verification will work),
+            None  if the sample could not be checked (connection errors)."""
+    if not jobs:
+        return False
+    step = max(1, len(jobs) // sample_size)
+    sample = jobs[::step][:sample_size]
+    still_pending = finished = errors = 0
+    for job in sample:
+        is_resolved, ok, info = check_job_status_once(job["job_id"], access_key, secret_key)
+        if is_resolved:
+            finished += 1
+        elif info.startswith("error checking status"):
+            errors += 1
+        else:
+            still_pending += 1
+        time.sleep(delay_seconds)
+    print(c_dim(f"  Sample of {len(sample)} old job(s): {still_pending} still pending, "
+                f"{finished} finished, {errors} could not be checked."))
+    if finished:
+        return False
+    if errors > len(sample) // 2 or still_pending == 0:
+        return None
+    return True
+
+
 def enqueue_to_wayback(url, access_key, secret_key, max_wait_minutes=30):
     """
     Only the QUEUEING step: sends the POST to Save Page Now and returns as soon as
@@ -1881,11 +1913,37 @@ def _process_site_inner():
         except Exception:
             pending_jobs_on_disk = []
         if pending_jobs_on_disk:
+            urls_before_resume = list(pending_urls)
             leftover_urls = {j["url"] for j in pending_jobs_on_disk}
             pending_urls = [u for u in pending_urls if u not in leftover_urls]
             print(c_info(f"Found {len(pending_jobs_on_disk)} queued job(s) from a previous run "
                   f"that was interrupted before confirming -- I will go straight to checking "
                   f"their status, instead of queueing them again.\n"))
+
+            # Jobs that were accepted long ago but are STILL "pending" are stuck: the Archive
+            # normally finishes a capture in minutes. Checking them again only wastes hours,
+            # so check a small sample and offer to send those URLs again instead.
+            age_hours = (time.time() - os.path.getmtime(pending_jobs_file)) / 3600
+            if age_hours >= SPN_STUCK_JOB_HOURS:
+                print(c_info(f"These jobs are about {age_hours:.0f} h old. Checking a small sample "
+                             f"to see whether the Archive is still working on them..."))
+                stuck = jobs_look_stuck(pending_jobs_on_disk, ACCESS_KEY, SECRET_KEY)
+                if stuck:
+                    print(c_warn("\nEvery job in the sample is still 'pending' at the Archive after "
+                                 "hours, so they look stuck and will probably never finish."))
+                    try:
+                        answer = input(c_info(f"Drop these {len(pending_jobs_on_disk)} jobs and send "
+                                              f"their URLs again? [Y/n]: ")).strip().lower()
+                    except EOFError:
+                        answer = "n"
+                    if answer in ("", "y", "yes", "s", "sim"):
+                        pending_jobs_on_disk = []
+                        pending_urls = urls_before_resume
+                        try:
+                            os.remove(pending_jobs_file)
+                        except OSError:
+                            pass
+                        print(c_ok(f"Dropped. {len(pending_urls)} URL(s) will be queued again.\n"))
 
     def save_pending_jobs():
         with open(pending_jobs_file, "w", encoding="utf-8") as f:
