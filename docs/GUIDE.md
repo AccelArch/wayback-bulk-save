@@ -37,7 +37,9 @@ Python, so there is nothing more to install. One command installs all the packag
 pip install -r requirements.txt
 ```
 
-Your keys go in `config.json` (copy `config.example.json` and fill it in).
+The first time you run the script it asks for your keys and saves them in
+`config.json` (the secret key is hidden while you type or paste it). You can also
+create that file by hand from `config.example.json`.
 
 The script needs almost no disk space (only small log files) and little internet
 data, because the Archive's servers do the heavy transfer of the actual pages and
@@ -76,12 +78,8 @@ a phone with Termux, a terminal app for Android:
    cd wayback-bulk-save
    pip install -r requirements.txt
    ```
-4. Create your config and fill in the keys:
-   ```bash
-   cp config.example.json config.json
-   nano config.json
-   ```
-5. Run it:
+4. Run it. The first time, it asks for your keys (paste them; the secret key stays
+   hidden) and saves them, so you never have to edit a file on the phone:
    ```bash
    python wayback_bulk_save.py
    ```

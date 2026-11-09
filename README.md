@@ -52,8 +52,13 @@ cannot do, and why Firecrawl is used.
 git clone https://github.com/AccelArch/wayback-bulk-save.git
 cd wayback-bulk-save
 pip install -r requirements.txt
-cp config.example.json config.json   # then fill in your keys (that is the only place they go)
+python wayback_bulk_save.py
 ```
+
+The first time you run it, the script asks for your Internet Archive keys (and,
+optionally, a Firecrawl key) and saves them in `config.json` next to the script. You
+are not asked again. Get your free keys at <https://archive.org/account/s3.php>. You can
+also create `config.json` by hand from `config.example.json`.
 
 `config.json` is ignored by Git, so `git pull` updates the script without touching your keys. **If you fork this project or share your own copy, never include `config.json` or your keys.**
 

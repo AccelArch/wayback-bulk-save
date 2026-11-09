@@ -4,9 +4,11 @@ Wayback Bulk Save -- saves every page (and downloadable file) of a website to th
 Internet Archive's Wayback Machine (web.archive.org), using Save Page Now.
 
 How to use:
-1. Set up your keys: copy config.example.json to config.json and fill it in.
+1. Run: python3 wayback_bulk_save.py
+   The first time, it asks for your Internet Archive keys and saves them to
+   config.json (you can also create that file by hand: see config.example.json).
    Get your keys at https://archive.org/account/s3.php
-2. Run: python3 wayback_bulk_save.py
+2. After that, every run:
    - The script ASKS for the site URL in the terminal (you never need to edit
      this file to save a new site).
    - It tries to find /sitemap.xml (or sitemap_index.xml, or sitemap-index.xml).
@@ -23,6 +25,7 @@ import sys
 import time
 import json
 import shutil
+import getpass
 import threading
 import urllib.request
 import urllib.parse
@@ -101,15 +104,22 @@ def c_dim(text):
 # ============ SETTINGS ============
 # Your keys are read from config.json (next to this script) -- set them once and
 # they work for every site you save afterwards.
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.json")
+
+
+def _is_unset(value):
+    """True if a key is empty or still a placeholder such as YOUR_ACCESS_KEY_HERE."""
+    return (not value) or str(value).strip().upper().startswith("YOUR_")
+
+
 def _load_credentials():
-    """Reads the keys from config.json (next to this script). Copy
-    config.example.json to config.json and fill it in. Never put keys in the code
-    and never commit config.json."""
+    """Reads the keys from config.json (next to this script). On the first run the
+    script asks for them and creates that file (see first_run_setup). Never put keys
+    in the code and never commit config.json."""
     cfg = {}
-    cfg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.json")
-    if os.path.isfile(cfg_path):
+    if os.path.isfile(CONFIG_PATH):
         try:
-            with open(cfg_path, "r", encoding="utf-8") as f:
+            with open(CONFIG_PATH, "r", encoding="utf-8") as f:
                 cfg = json.load(f)
         except Exception as e:
             print(f"Warning: could not read config.json ({e})")
@@ -119,6 +129,66 @@ def _load_credentials():
 
 
 ACCESS_KEY, SECRET_KEY, FIRECRAWL_API_KEY = _load_credentials()
+
+
+def keys_are_set():
+    """True when the Internet Archive keys are filled in (no setup needed)."""
+    return not (_is_unset(ACCESS_KEY) or _is_unset(SECRET_KEY))
+
+
+def first_run_setup():
+    """Asks for the keys and saves them to config.json, so this only happens once.
+    Returns True when the keys are ready to use. It only asks in an interactive
+    terminal; anywhere else it returns False without writing anything."""
+    global ACCESS_KEY, SECRET_KEY, FIRECRAWL_API_KEY
+    if not (sys.stdin and sys.stdin.isatty()):
+        return False
+
+    print(c_title("\nFirst-time setup: your Internet Archive keys"))
+    print("You only do this once. Your keys are saved in config.json, next to this")
+    print("script, and stay on this device.")
+    print("Get your free keys at: https://archive.org/account/s3.php\n")
+
+    access = input(c_info("Access key: ")).strip()
+    secret = getpass.getpass(c_info("Secret key (hidden while you type or paste): ")).strip()
+    if not access or not secret:
+        print(c_err("Both keys are required. Nothing was saved."))
+        return False
+    firecrawl = getpass.getpass(
+        c_info("Firecrawl API key (optional, press Enter to skip): ")).strip()
+
+    # Keep anything else already in config.json (for example a Firecrawl key that
+    # is already set) instead of overwriting the whole file.
+    cfg = {}
+    if os.path.isfile(CONFIG_PATH):
+        try:
+            with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+        except Exception:
+            cfg = {}
+    cfg["access_key"] = access
+    cfg["secret_key"] = secret
+    if firecrawl or _is_unset(cfg.get("firecrawl_api_key")):
+        cfg["firecrawl_api_key"] = firecrawl
+
+    try:
+        # 0o600 = only the current user can read the file (Linux, macOS, Termux)
+        fd = os.open(CONFIG_PATH, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(cfg, f, indent=2)
+            f.write("\n")
+        try:
+            os.chmod(CONFIG_PATH, 0o600)
+        except OSError:
+            pass
+    except OSError as e:
+        print(c_err(f"Could not write config.json: {e}"))
+        return False
+
+    ACCESS_KEY, SECRET_KEY = access, secret
+    FIRECRAWL_API_KEY = cfg["firecrawl_api_key"] or "YOUR_FIRECRAWL_API_KEY_HERE"
+    print(c_ok(f"\nSaved to {CONFIG_PATH}. You will not be asked again.\n"))
+    return True
 # Internet Archive keys: https://archive.org/account/s3.php
 # Firecrawl key (optional): https://www.firecrawl.dev
 MAX_PAGES = 50000          # safety limit for crawl mode (used when there is no sitemap)
@@ -1323,8 +1393,10 @@ def _process_site_inner():
         print(c_err("  pip install beautifulsoup4 lxml"))
         return
 
-    if ACCESS_KEY == "YOUR_ACCESS_KEY_HERE" or SECRET_KEY == "YOUR_SECRET_KEY_HERE":
-        print(c_err("ERROR: copy config.example.json to config.json and fill in your keys before running."))
+    if not keys_are_set() and not first_run_setup():
+        print(c_err("ERROR: your Internet Archive keys are not set."))
+        print(c_err("Run this script in a terminal to enter them, or fill in config.json "
+                    "by hand (see config.example.json)."))
         print(c_err("Get your keys at: https://archive.org/account/s3.php"))
         return
 
@@ -1434,7 +1506,7 @@ def _process_site_inner():
         # to importing a CSV/TXT file if the API key is not configured or if the
         # call fails for some reason (no credits, network error...).
         firecrawl_ok = False
-        if FIRECRAWL_API_KEY and FIRECRAWL_API_KEY != "YOUR_FIRECRAWL_API_KEY_HERE":
+        if not _is_unset(FIRECRAWL_API_KEY):
             # CACHE: if we already mapped this site before, ask whether to reuse it
             # (for free) instead of calling the API again (which costs 1 credit
             # per call, even if the links are already known).
