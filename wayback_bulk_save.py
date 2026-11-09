@@ -926,6 +926,17 @@ def check_job_status_once(job_id, access_key, secret_key):
             err_msg = data.get("message") or data.get("status_ext") or raw[:200]
             return True, False, f"error: {err_msg}"
         return False, False, job_status or "pending"
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            # The Archive does not know this job (it expired, or was never created).
+            # Waiting longer will not help, so report it as a final failure: the retry
+            # step then checks the index and sends the URL again if it is really missing.
+            return True, False, "error: job not found at the Archive (expired or never created)"
+        if e.code in (401, 403):
+            return False, False, f"error checking status (HTTP {e.code}: the Archive rejected your keys)"
+        if e.code == 429:
+            return False, False, "error checking status (HTTP 429: too many status checks, slow down)"
+        return False, False, f"error checking status (HTTP {e.code})"
     except Exception as e:
         return False, False, f"error checking status ({e})"
 
@@ -933,7 +944,7 @@ def check_job_status_once(job_id, access_key, secret_key):
 def verify_all_jobs(submitted, access_key, secret_key,
                      poll_interval=SPN_POLL_INTERVAL_SECONDS,
                      max_wait_minutes=SPN_POLL_MAX_WAIT_MINUTES,
-                     status_stagger_seconds=1, on_resolved=None):
+                     status_stagger_seconds=1, on_resolved=None, progress_every=100):
     """
     Verifies, IN BULK, all the jobs queued in the submission phase, in rounds:
     in each round it checks the status of ALL jobs still pending (one after the
@@ -956,39 +967,80 @@ def verify_all_jobs(submitted, access_key, secret_key,
     """
     pending = list(submitted)
     resolved = {}
-    total_waited = 0
+    started = time.time()
+    passes = 0
+
+    # One pass checks every pending job once (about 1-2 s per job), so a big batch takes
+    # a long time. Say so up front, otherwise a silent first pass looks like a freeze.
+    if len(pending) > 50:
+        est_min = max(1, int(len(pending) * (status_stagger_seconds + 1) / 60))
+        print(c_info(f"     Each pass checks every job once and takes roughly {est_min} min "
+                     f"for {len(pending)} jobs. Progress is shown every {progress_every} checks."))
 
     while pending:
+        passes += 1
+        total = len(pending)
         still_pending = []
+        confirmed = failed = 0
+        check_errors = {}  # reason -> how many checks failed for that reason
+
         for idx, item in enumerate(pending, 1):
             is_resolved, ok, info = check_job_status_once(item["job_id"], access_key, secret_key)
             if is_resolved:
                 resolved[item["job_id"]] = (ok, info)
+                confirmed += 1 if ok else 0
+                failed += 0 if ok else 1
                 tag = c_ok("OK ✓") if ok else c_err(f"FAILED ✗ ({info})")
-                print(f"  [{idx}/{len(pending)}] {item['url']} -> {tag}")
+                print(f"  [{idx}/{total}] {item['url']} -> {tag}")
                 if on_resolved:
                     on_resolved(item, ok, info)
             else:
                 still_pending.append(item)
+                if info.startswith("error checking status"):
+                    # The check itself failed (rate limit, rejected keys, network...).
+                    # Show each distinct reason the first time it happens.
+                    if info not in check_errors:
+                        print(c_warn(f"  !! {info}"))
+                    check_errors[info] = check_errors.get(info, 0) + 1
+
+            if progress_every and idx % progress_every == 0 and idx != total:
+                print(c_dim(f"     .. checked {idx}/{total}: {confirmed} confirmed, {failed} failed, "
+                            f"{len(still_pending)} not confirmed yet"))
             if status_stagger_seconds:
                 time.sleep(status_stagger_seconds)
 
         pending = still_pending
+        print(c_dim(f"  Pass {passes} done: {total} checked -> {confirmed} confirmed, "
+                    f"{failed} failed, {len(pending)} not confirmed yet."))
+        if check_errors:
+            n_err = sum(check_errors.values())
+            print(c_warn(f"  {n_err} of the {total} checks could not be completed:"))
+            for reason, count in sorted(check_errors.items(), key=lambda kv: -kv[1]):
+                print(c_warn(f"    {count} x {reason}"))
+            if n_err == total:
+                print(c_err("  Every status check failed, so nothing could be verified. Check your "
+                            "keys and your connection, then run the script again: the pending "
+                            "jobs are kept and will be checked again."))
+        elif pending:
+            print(c_dim("  The Archive has accepted these jobs but has not finished them yet "
+                        "(it processes the queue slowly when it is busy)."))
         if not pending:
             break
 
-        total_waited += poll_interval
-        if total_waited >= max_wait_minutes * 60:
+        # Real elapsed time, not the sum of the waits. Always do at least 2 full passes,
+        # so a huge batch is not cut off in the middle of the first one.
+        elapsed = time.time() - started
+        if elapsed >= max_wait_minutes * 60 and passes >= 2:
             print(c_warn(f"\n  !! Overall verification timeout ({max_wait_minutes} min): "
-                  f"{len(pending)} job(s) are still pending and will be marked as failed "
+                  f"{len(pending)} job(s) are still not confirmed and will be marked as failed "
                   f"(they can be resent in the retry step)."))
             for item in pending:
                 resolved[item["job_id"]] = (False, "timed out waiting for confirmation")
             break
 
-        print(c_dim(f"     .. {len(pending)} job(s) still pending, "
-              f"waiting {poll_interval}s before the next round "
-              f"(total waited: {total_waited}s / {max_wait_minutes*60}s)..."))
+        print(c_dim(f"     .. {len(pending)} job(s) not confirmed yet, "
+              f"waiting {poll_interval}s before the next pass "
+              f"(elapsed: {int(elapsed // 60)} min / {max_wait_minutes} min)..."))
         time.sleep(poll_interval)
 
     return resolved
