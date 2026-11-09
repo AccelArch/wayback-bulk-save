@@ -209,6 +209,13 @@ SPN_VERIFY_PROGRESS_EVERY = 25    # show a progress line every N status checks
 SPN_VERIFY_ERROR_STREAK = 5       # this many failed checks in a row = the Archive is refusing us
 SPN_VERIFY_MAX_PAUSES = 6         # pauses (2, 4, 8, 16, 30, 30 min) before giving up for now
 SPN_STUCK_JOB_HOURS = 3           # saved jobs older than this that are all still "pending" are stuck
+# Sending in a WINDOW: the Archive sometimes accepts requests and then does not finish
+# them (it happens when it is busy). So the script never lets more than SPN_MAX_IN_FLIGHT
+# accepted-but-unconfirmed jobs pile up, and checks the oldest ones while it keeps sending.
+SPN_MAX_IN_FLIGHT = 150           # accepted jobs allowed to wait for confirmation at once
+SPN_REAP_EVERY = 25               # after every N URLs sent, check the oldest waiting jobs
+SPN_REAP_CHECKS = 40              # how many of the oldest waiting jobs to check each time
+SPN_STALL_MINUTES = 45            # waiting jobs but none finished for this long: pause and stop
 
 CAPTURE_SCREENSHOT = False   # takes a screenshot of each saved page (like the browser extension does)
 CAPTURE_OUTLINKS = False    # False because this script already maps every page via
@@ -899,6 +906,35 @@ def already_saved_recently_batch(urls, days=7, max_workers=10):
     return to_save
 
 
+_KNOWN_STATUS_FIELDS = {"status", "job_id", "resources", "timestamp", "original_url", "duration_sec",
+                        "counters", "http_status", "mimetype", "content_length", "message",
+                        "status_ext", "screenshot", "first_archive", "outlinks", "url"}
+_SEEN_STATUS_FIELDS = set()
+_SEEN_ARCHIVE_MESSAGES = set()
+
+
+def _note_unknown_fields(data):
+    """The status answer sometimes carries fields this script does not use. Show each new
+    one once, so we can learn what the Archive tells us (for example, a busy message)."""
+    for key in set(data) - _KNOWN_STATUS_FIELDS - _SEEN_STATUS_FIELDS:
+        _SEEN_STATUS_FIELDS.add(key)
+        print(c_dim(f"     (the Archive's status answer has a field this script does not use yet: "
+                    f"'{key}' = {str(data[key])[:80]})"))
+
+
+def _note_status_message(info):
+    """Shows, once per distinct text, what the Archive says about a job that is still pending."""
+    if ": " in info and not info.startswith("error"):
+        text = info.split(": ", 1)[1]
+        if text not in _SEEN_ARCHIVE_MESSAGES:
+            _SEEN_ARCHIVE_MESSAGES.add(text)
+            print(c_info(f"     Archive says: {text}"))
+
+
+class ArchiveStalled(Exception):
+    """Jobs are waiting at the Archive, but none has finished for too long."""
+
+
 def check_job_status_once(job_id, access_key, secret_key):
     """
     A single check (no loop/waiting) of https://web.archive.org/save/status/{job_id}.
@@ -923,13 +959,17 @@ def check_job_status_once(job_id, access_key, secret_key):
             raw = resp.read().decode(errors="ignore")
         data = json.loads(raw)
         job_status = data.get("status")
+        _note_unknown_fields(data)
 
         if job_status == "success":
             return True, True, "success"
         if job_status == "error":
             err_msg = data.get("message") or data.get("status_ext") or raw[:200]
             return True, False, f"error: {err_msg}"
-        return False, False, job_status or "pending"
+        # Still pending. If the Archive says something about it (for example that it is
+        # busy), keep that text so it can be shown.
+        note = data.get("message") or data.get("status_ext")
+        return False, False, (f"{job_status or 'pending'}: {note}" if note else (job_status or "pending"))
     except urllib.error.HTTPError as e:
         if e.code == 404:
             # The Archive does not know this job (it expired, or was never created).
@@ -1022,6 +1062,8 @@ def verify_all_jobs(submitted, access_key, secret_key,
                     if info not in check_errors:
                         print(c_warn(f"  !! {info}"))
                     check_errors[info] = check_errors.get(info, 0) + 1
+                else:
+                    _note_status_message(info)
 
             # Several failed checks in a row: the Archive is refusing or limiting this
             # connection. Hammering it (1 check per second) only makes that worse, so
@@ -1511,6 +1553,13 @@ def process_site():
     """Wraps the processing of one site in the time log (start/finish)."""
     try:
         _process_site_inner()
+    except ArchiveStalled as e:
+        print(c_err(f"\nThe Archive accepted the requests but has not finished any of them for "
+                    f"{SPN_STALL_MINUTES} minutes, so the run was paused."))
+        print(c_warn(f"  {e}"))
+        print(c_warn("  Nothing was lost and nothing was marked as failed: the waiting jobs are kept. "
+                     "The Archive is probably busy. Run this script again later (in an hour or more) "
+                     "and it will pick up from here."))
     finally:
         timeline_end()
 
@@ -1949,6 +1998,81 @@ def _process_site_inner():
         with open(pending_jobs_file, "w", encoding="utf-8") as f:
             json.dump(pending_jobs_on_disk, f, ensure_ascii=False, indent=2)
 
+    already_persisted_job_ids = set()
+    early_failed = []   # URLs whose job ended in an error while we were still sending
+    progress = {"last": time.time(), "started": time.time(), "confirmed": 0}
+
+    def on_job_resolved(item, ok, info):
+        """Called the moment each job is confirmed (success or a final error).
+        Writes the result to results/save_log_file IMMEDIATELY (instead of waiting
+        for the whole batch of thousands of jobs to finish verifying), and also
+        removes the job from pending_jobs_file -- if the script is interrupted in the
+        middle of verification, what was already confirmed up to that point is not lost."""
+        results.append({"url": item["url"], "status": item["status"], "ok": ok, "detail": info,
+                        "ts": int(time.time())})
+        already_persisted_job_ids.add(item["job_id"])
+        with open(save_log_file, "w", encoding="utf-8") as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+        pending_jobs_on_disk[:] = [j for j in pending_jobs_on_disk if j["job_id"] != item["job_id"]]
+        save_pending_jobs()
+
+    def reap(max_checks=None):
+        """Checks the OLDEST waiting jobs once and records the ones that finished.
+        Returns how many finished. This runs while we keep sending, so a Archive that
+        accepts requests but does not finish them is noticed in minutes, not hours."""
+        max_checks = max_checks or SPN_REAP_CHECKS
+        finished = 0
+        error_streak = 0
+        reasons = {}
+        for item in list(pending_jobs_on_disk[:max_checks]):
+            is_resolved, ok, info = check_job_status_once(item["job_id"], ACCESS_KEY, SECRET_KEY)
+            if is_resolved:
+                on_job_resolved(item, ok, info)
+                finished += 1
+                error_streak = 0
+                if ok:
+                    print(c_ok("  confirmed OK ✓ ") + item["url"])
+                else:
+                    early_failed.append(item["url"])
+                    print(c_err(f"  FAILED ✗ ({info}) ") + item["url"])
+            elif info.startswith("error checking status"):
+                error_streak += 1
+                reasons[info] = reasons.get(info, 0) + 1
+                if error_streak >= SPN_VERIFY_ERROR_STREAK:
+                    break  # the Archive is refusing the checks right now; try again later
+            else:
+                error_streak = 0
+                _note_status_message(info)
+            time.sleep(1)
+        if finished:
+            progress["last"] = time.time()
+            progress["confirmed"] += finished
+        for reason, count in reasons.items():
+            print(c_warn(f"  !! {count} x {reason}"))
+        minutes = (time.time() - progress["started"]) / 60
+        rate = f", about {progress['confirmed'] / minutes:.1f}/min" if minutes >= 1 and progress["confirmed"] else ""
+        print(c_dim(f"     .. {len(pending_jobs_on_disk)} accepted job(s) waiting for confirmation, "
+                    f"{progress['confirmed']} confirmed in this run{rate}"))
+        return finished
+
+    def check_stall():
+        """Raises ArchiveStalled when jobs are waiting but none has finished for too long."""
+        if pending_jobs_on_disk and time.time() - progress["last"] >= SPN_STALL_MINUTES * 60:
+            raise ArchiveStalled(f"{len(pending_jobs_on_disk)} job(s) are waiting at the Archive.")
+
+    def wait_for_room():
+        """Never lets more than SPN_MAX_IN_FLIGHT accepted-but-unconfirmed jobs pile up.
+        If the Archive is behind, we simply send fewer requests, and wait, without
+        marking anything as failed and without sending the same URL twice."""
+        while len(pending_jobs_on_disk) >= SPN_MAX_IN_FLIGHT:
+            reap()
+            if len(pending_jobs_on_disk) < SPN_MAX_IN_FLIGHT:
+                break
+            check_stall()
+            print(c_dim(f"     .. the Archive is behind ({len(pending_jobs_on_disk)} jobs waiting, "
+                        f"limit {SPN_MAX_IN_FLIGHT}). Not sending more until some finish."))
+            time.sleep(SPN_POLL_INTERVAL_SECONDS)
+
     def submit_batch(url_batch, label="Queueing", final_pass=False):
         """Phase 1: sends the POST for each URL and collects the job_ids, without
         waiting for each one to be confirmed. URLs that fail at the POST for a
@@ -1963,13 +2087,16 @@ def _process_site_inner():
         submitted = []
         deferred = []
         for i, url in enumerate(url_batch, 1):
+            wait_for_room()
             pct = int((i / len(url_batch)) * 100)
             print(c_title(f"[{i}/{len(url_batch)} - {pct}%]") + f" {label}: {url}")
             accepted, status, job_id_or_detail = enqueue_to_wayback(url, ACCESS_KEY, SECRET_KEY)
             if accepted:
-                print(c_dim(f"  -> queued (job {job_id_or_detail})"))
+                print(c_dim(f"  -> accepted by the Archive, not saved yet (job {job_id_or_detail})"))
                 entry = {"url": url, "job_id": job_id_or_detail, "status": status}
                 submitted.append(entry)
+                if not pending_jobs_on_disk:
+                    progress["last"] = time.time()  # nothing was waiting before this one
                 pending_jobs_on_disk.append(entry)
                 save_pending_jobs()
             else:
@@ -1997,6 +2124,9 @@ def _process_site_inner():
                     with open(save_log_file, "w", encoding="utf-8") as f:
                         json.dump(results, f, ensure_ascii=False, indent=2)
             time.sleep(DELAY_SECONDS)
+            if i % SPN_REAP_EVERY == 0:
+                reap()
+                check_stall()
         return submitted, deferred
 
     submitted, deferred = submit_batch(pending_urls)
@@ -2011,22 +2141,18 @@ def _process_site_inner():
     # included -- those jobs go into verification together with the ones from this run.
     submitted = pending_jobs_on_disk
 
-    remaining_to_verify = submitted
-    already_persisted_job_ids = set()
+    # Jobs that ended in an error while we were still sending were already logged as
+    # failures; send those URLs once more now (one extra attempt, like the retry step below).
+    if early_failed:
+        retry_urls = list(dict.fromkeys(early_failed))
+        early_failed.clear()
+        print(c_warn(f"\n{len(retry_urls)} URL(s) ended in an error while sending -- trying them "
+                     f"again now...\n"))
+        submit_batch(retry_urls, label="Retrying (failed earlier)", final_pass=True)
 
-    def on_job_resolved(item, ok, info):
-        """Called the moment each job is confirmed (success or a final error).
-        Writes the result to results/save_log_file IMMEDIATELY (instead of waiting
-        for the whole batch of thousands of jobs to finish verifying), and also
-        removes the job from pending_jobs_file -- if the script is interrupted in the
-        middle of verification, what was already confirmed up to that point is not lost."""
-        results.append({"url": item["url"], "status": item["status"], "ok": ok, "detail": info,
-                        "ts": int(time.time())})
-        already_persisted_job_ids.add(item["job_id"])
-        with open(save_log_file, "w", encoding="utf-8") as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        pending_jobs_on_disk[:] = [j for j in pending_jobs_on_disk if j["job_id"] != item["job_id"]]
-        save_pending_jobs()
+    # A COPY: on_job_resolved removes finished jobs from pending_jobs_on_disk while we verify,
+    # and the retry step below still needs to see the ones that failed.
+    remaining_to_verify = list(pending_jobs_on_disk)
 
     for attempt in range(SPN_RETRY_ATTEMPTS + 1):
         if not remaining_to_verify:

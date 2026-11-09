@@ -120,11 +120,17 @@ a phone with Termux, a terminal app for Android:
 2. **Filter.** It removes duplicates, technical junk (`/api/`, `/wp-admin/`, login
    pages...), cosmetic variants (`?utm_source=...`, `?sort=...`) and files above
    the size cap.
-3. **Queue.** It sends every URL to Save Page Now, one every ~14 seconds, pages
-   first and heavy files last.
-4. **Confirm.** Save Page Now is asynchronous: "accepted" only means "in the
-   queue". The script then checks every job and prints **OK** only when the Archive
-   confirms the snapshot. Failures are retried once.
+3. **Send, in a window.** It sends the URLs to Save Page Now, one every ~14 seconds,
+   pages first and heavy files last. "Accepted by the Archive" only means the
+   request is in the Archive's queue, **not** that the page is saved. The script
+   never lets more than 150 accepted requests wait for confirmation at once: while
+   it keeps sending, it checks the oldest waiting ones. If the Archive is slow, the
+   script just sends less and waits; it does not send the same URL twice.
+4. **Confirm.** The script prints **OK** only when the Archive reports that the
+   snapshot exists. When everything is sent it confirms the rest. Failures are
+   retried once. If requests are waiting but **none** finishes for 45 minutes (the
+   Archive is probably busy), the script pauses and stops, keeps the waiting jobs,
+   and marks nothing as failed. Run it again later and it continues.
 
 Everything is written to a folder named after the site, next to the script.
 If you stop it (Ctrl+C, closed terminal, daily limit), **run it again and it
@@ -212,6 +218,8 @@ Be realistic about these before you start:
 | `host-crawling-paused` | The Archive paused that site temporarily to avoid overloading it | Waits with growing delays, retries at the end |
 | `429` / `5xx` | Rate limit or Archive overload | Waits 1, 2, 4... minutes (up to 10 min), then retries |
 | `max-daily-bandwidth` | Your account hit the daily data cap, easy to reach with large files | Stops cleanly and records `paused_daily_limit`; run again the next day |
+| Jobs stay `pending` | The Archive accepted the request but has not processed it (usually because it is busy) | Waits and sends fewer requests; after 45 minutes with no job finishing it pauses and keeps the jobs |
+| `Connection refused` on status checks | The Archive refuses some status requests, on and off | After 5 failures in a row it pauses (2, 4, 8, 16, 30, 30 min), then stops without losing anything |
 | Firecrawl `401` | Firecrawl key missing or wrong | Falls back to the URL-file import |
 | Firecrawl `402` | Firecrawl credits are used up | Falls back to the URL-file import |
 
@@ -243,7 +251,10 @@ They are plain constants at the top of `wayback_bulk_save.py`:
 | `MAX_PAGES` | 50000 | Safety limit for the crawler |
 | `URL_INCLUDE_PATTERN` | `None` | A regex; only matching URLs are saved |
 | `ALLOW_EXTERNAL_FILE_LINKS` | `True` | Also save files hosted on other domains |
-| `CAPTURE_SCREENSHOT` | `False` | Ask the Archive to also take a screenshot |
+| `CAPTURE_SCREENSHOT` | `False` | Ask the Archive to also take a screenshot (useful to see what it saw on a dynamic site) |
+| `SPN_MAX_IN_FLIGHT` | 150 | Most accepted-but-unconfirmed requests allowed at once |
+| `SPN_STALL_MINUTES` | 45 | Pause the run if requests are waiting but none finishes for this long |
+| `SPN_VERIFY_PROGRESS_EVERY` | 25 | Show a progress line every N status checks |
 
 ## 12. Rules of use (please read)
 
