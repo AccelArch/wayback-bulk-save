@@ -16,7 +16,7 @@ tool turns them into a clean record inside `archived-sites/`:
 
 Usage:
     python record_archive.py <site_folder>
-    python record_archive.py thegitcity_com_town_brasil_town
+    python record_archive.py example_com
     python record_archive.py <site_folder> --out some/other/folder
     python record_archive.py <site_folder> --exclude /profile/ --exclude /user/
 
