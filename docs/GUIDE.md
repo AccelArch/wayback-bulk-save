@@ -197,7 +197,10 @@ Be realistic about these before you start:
 - **It does not guarantee a perfect copy.** Snapshots of sites that depend heavily
   on JavaScript, embedded players, maps or live data may look broken or empty when
   replayed, even though the save succeeded. "OK" means "a snapshot exists", not
-  "it looks identical".
+  "it looks identical". The same goes for sites that show an age-confirmation or
+  cookie screen, or that load their content only after the visitor clicks
+  something: the Archive's browser does not click, so what sits behind that screen
+  may be missing.
 - **The crawler does not run JavaScript.** Links that only appear after scripts
   run (infinite scroll, single-page apps) are not found by modes 1-2. Use mode 4
   or give a URL list.
@@ -205,13 +208,38 @@ Be realistic about these before you start:
   linked, and not in your list, it is not saved.
 - **It cannot bypass bot checks, CAPTCHAs or the Archive's limits.** It waits and
   retries; it does not evade anything.
-- **It does not check `robots.txt`.** The Archive applies its own exclusion rules,
-  and a site owner can have pages removed or excluded from the Wayback Machine.
-  Those URLs will simply fail.
+- **It does not check `robots.txt`.** The Archive applies its own exclusion rules
+  and does not always treat `robots.txt` the way a search engine does. A site owner
+  can still ask to have pages excluded or removed from the Wayback Machine.
 - **It is not instant.** At one request every ~14 seconds, about 250 URLs per
   hour; a site with thousands of pages takes many hours or days.
 - **It does not create a local backup.** If you need the files on your own disk,
   use a different tool (for example `wget` or HTTrack).
+
+### What to expect from the Archive
+
+The script is meant to run on its own, start to finish. These are the things that
+come from the Archive's side, and what the script does about them automatically:
+
+- **"Accepted" is not "saved".** When the Archive is busy it accepts requests and
+  finishes them later, or not at all. The script counts a URL as saved only when the
+  Archive reports success, never sends more than a set number of unconfirmed
+  requests (150 by default), and keeps checking the oldest ones while it sends.
+- **A busy Archive is handled for you.** If requests are waiting and none finishes,
+  the script asks the Archive whether it is working on your requests, waits if it
+  is only slow, and pauses (keeping everything) if it is not. Run it again later
+  and it continues from where it stopped.
+- **The public index does not list everything.** Looking a URL up in the Wayback
+  Machine's public index (CDX) can miss captures that exist, so a "not found" there
+  does not prove a URL was not saved. The job status the script reads is the
+  reliable source.
+- **Your account has limits.** For example, only a few captures can run at the same
+  time. The script shows your account's limits when a run starts and waits when a
+  limit is reached.
+
+Nothing here needs your attention during a run. If you want to see how a page came
+out, open it in the Wayback Machine after the run: the calendar link for any saved
+URL is `https://web.archive.org/web/*/<url>`.
 
 ## 9. The Archive's limits (and how the script reacts)
 

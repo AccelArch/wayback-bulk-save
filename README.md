@@ -108,6 +108,16 @@ can also contain information from other pages (for example, profile data shown i
 a list page), so removing a URL here does not necessarily remove it from the Wayback
 Machine.
 
+## Tests
+
+The behaviors that depend on the Archive (a slow or stalled Archive, refused connections,
+retries, resuming) are covered by automated tests that simulate the Archive. They need no
+internet, no keys and no account, and run in a couple of seconds:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
 ## Rules of use
 
 - Respect the Archive's limits. The script waits between requests and stops on the daily bandwidth limit; don't lower the delay to hammer the service.
