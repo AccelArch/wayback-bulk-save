@@ -41,6 +41,25 @@ The first time you run the script it asks for your keys and saves them in
 `config.json` (the secret key is hidden while you type or paste it). You can also
 create that file by hand from `config.example.json`.
 
+**How your keys are handled**
+
+- **First run:** the script asks for your Internet Archive *access key* (shown on
+  screen) and *secret key* (hidden, like a password), then for an optional
+  Firecrawl key (press Enter to skip).
+- **Where they are stored:** in `config.json`, next to the script, on your own
+  device. On Linux, macOS and Termux only your user can read the file. The keys
+  are only sent to archive.org (and firecrawl.dev, if you use it) when the
+  script talks to them.
+- **Next runs:** it does not ask again.
+- **To change a key** (a new key, a typo, adding Firecrawl later): delete
+  `config.json` and run the script again, or open the file and edit it.
+- **No terminal to type in** (for example a scheduled job): create `config.json`
+  by hand from `config.example.json`, because the script only asks questions in
+  an interactive terminal.
+- **If your keys are ever exposed,** get new ones on the same page where you
+  got the first ones (<https://archive.org/account/s3.php>) and replace them.
+- **Never share `config.json`.** It is git-ignored, so normal commits skip it.
+
 The script needs almost no disk space (only small log files) and little internet
 data, because the Archive's servers do the heavy transfer of the actual pages and
 files.
@@ -143,7 +162,7 @@ all it is used for. The script does not use Firecrawl to save anything.
   instead. You can produce that file with any tool, or by hand.
 - **It is not perfect.** A map can miss some pages and include a few that are not
   real. If completeness matters, combine it with mode 1 or 2.
-- Your Firecrawl key goes in `config.json`, never in the script.
+- Your Firecrawl key is stored in `config.json` (the first-run setup asks for it), never in the script.
 
 ## 7. What it can do
 
