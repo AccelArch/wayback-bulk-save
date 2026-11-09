@@ -55,7 +55,7 @@ pip install -r requirements.txt
 cp config.example.json config.json   # then fill in your keys (that is the only place they go)
 ```
 
-`config.json` is git-ignored, so `git pull` updates the script without touching your keys. **Never commit your keys.**
+`config.json` is ignored by Git, so `git pull` updates the script without touching your keys. **If you fork this project or share your own copy, never include `config.json` or your keys.**
 
 ## Usage
 
