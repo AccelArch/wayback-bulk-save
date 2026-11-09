@@ -18,6 +18,7 @@ Usage:
     python record_archive.py <site_folder>
     python record_archive.py thegitcity_com_town_brasil_town
     python record_archive.py <site_folder> --out some/other/folder
+    python record_archive.py <site_folder> --exclude /profile/ --exclude /user/
 
 Run it again later and the record is refreshed (for example after a resumed run).
 All dates are written in UTC. Uses only the Python standard library.
@@ -55,8 +56,11 @@ def _read_json(path):
         return json.load(f)
 
 
-def build_record(site_folder):
-    """Reads a site's working folder and returns the facts about it as a dict."""
+def build_record(site_folder, excludes=()):
+    """Reads a site's working folder and returns the facts about it as a dict.
+
+    `excludes` is a list of text fragments (for example "/profile/"). Any URL that
+    contains one of them is counted but NOT written to the public lists."""
     slug = os.path.basename(os.path.abspath(site_folder))
     log_path = os.path.join(site_folder, f"saved_urls_{slug}.json")
     if not os.path.isfile(log_path):
@@ -74,6 +78,13 @@ def build_record(site_folder):
     failed = sorted(tried - set(saved_at))
     saved = sorted(saved_at)
     stamps = [t for t in saved_at.values() if t]
+
+    # URLs matching an exclusion are counted, but kept out of the published lists.
+    def _excluded(url):
+        return any(fragment in url for fragment in excludes)
+    withheld = sum(1 for u in saved if _excluded(u))
+    listed_saved = [u for u in saved if not _excluded(u)]
+    listed_failed = [u for u in failed if not _excluded(u)]
 
     # The timeline file is optional (sites saved before it existed do not have one).
     timeline = None
@@ -97,13 +108,15 @@ def build_record(site_folder):
         "urls_saved": len(saved),
         "urls_failed": len(failed),
         "urls_tried": len(tried),
+        "urls_withheld": withheld,
+        "excluded_patterns": list(excludes),
         "first_capture_ts": min(stamps) if stamps else None,
         "last_capture_ts": max(stamps) if stamps else None,
         "started_ts": started,
         "finished_ts": finished,
         "recorded_ts": int(time.time()),
-        "saved": saved,
-        "failed": failed,
+        "saved": listed_saved,
+        "failed": listed_failed,
     }
 
 
@@ -115,7 +128,7 @@ def write_site_record(rec, out_root):
         f.write("\n".join(rec["saved"]) + ("\n" if rec["saved"] else ""))
 
     failed_path = os.path.join(folder, "failed-urls.txt")
-    if rec["failed"]:
+    if rec["failed"]:  # only the URLs that are allowed to be listed
         with open(failed_path, "w", encoding="utf-8", newline="\n") as f:
             f.write("\n".join(rec["failed"]) + "\n")
     elif os.path.exists(failed_path):
@@ -134,6 +147,12 @@ def write_site_record(rec, out_root):
         "|---|---|",
         f"| **Site** | {rec['site']} |",
         f"| **URLs saved** | {rec['urls_saved']} of {rec['urls_tried']} tried |",
+    ]
+    if rec.get("urls_withheld"):
+        patterns = ", ".join(f"`{p}`" for p in rec.get("excluded_patterns", []))
+        lines.append(f"| **Not listed here** | {rec['urls_withheld']} saved URLs matching {patterns} "
+                     f"(left out on purpose, for privacy) |")
+    lines += [
         f"| **First capture** | {_utc(rec['first_capture_ts'])} |",
         f"| **Last capture** | {_utc(rec['last_capture_ts'])} |",
     ]
@@ -150,7 +169,8 @@ def write_site_record(rec, out_root):
         "",
         "Files in this folder:",
         "",
-        "- [`saved-urls.txt`](saved-urls.txt): every URL confirmed saved, one per line",
+        "- [`saved-urls.txt`](saved-urls.txt): every URL confirmed saved, one per line"
+        + (" (except the ones noted above as not listed)" if rec.get("urls_withheld") else ""),
     ]
     if rec["failed"]:
         lines.append(f"- [`failed-urls.txt`](failed-urls.txt): {rec['urls_failed']} URL(s) that never succeeded")
@@ -196,6 +216,10 @@ def write_index(out_root):
 def main():
     parser = argparse.ArgumentParser(description="Write a public record of a finished archive.")
     parser.add_argument("site_folder", help="folder created by wayback_bulk_save.py for the site")
+    parser.add_argument("--exclude", action="append", default=[], metavar="TEXT",
+                        help="leave out of the public lists every URL that contains TEXT "
+                             "(for example /profile/); the URLs are still counted. "
+                             "Can be repeated.")
     parser.add_argument("--out", default=None,
                         help="where to write the record (default: archived-sites/ next to this script)")
     args = parser.parse_args()
@@ -203,11 +227,14 @@ def main():
     out_root = args.out or os.path.join(os.path.dirname(os.path.abspath(__file__)), "archived-sites")
     os.makedirs(out_root, exist_ok=True)
 
-    rec = build_record(args.site_folder)
+    rec = build_record(args.site_folder, args.exclude)
     folder = write_site_record(rec, out_root)
     write_index(out_root)
     print(f"Recorded {rec['site']}: {rec['urls_saved']} URL(s) saved, "
           f"{rec['urls_failed']} failed.")
+    if rec["urls_withheld"]:
+        print(f"{rec['urls_withheld']} saved URL(s) were counted but left out of the lists "
+              f"(--exclude).")
     print(f"Written to: {folder}")
 
 
