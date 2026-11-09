@@ -128,9 +128,13 @@ a phone with Termux, a terminal app for Android:
    script just sends less and waits; it does not send the same URL twice.
 4. **Confirm.** The script prints **OK** only when the Archive reports that the
    snapshot exists. When everything is sent it confirms the rest. Failures are
-   retried once. If requests are waiting but **none** finishes for 45 minutes (the
-   Archive is probably busy), the script pauses and stops, keeps the waiting jobs,
-   and marks nothing as failed. Run it again later and it continues.
+   retried once. If requests are waiting but **none** finishes for 10 minutes, the
+   script asks the Archive how busy your account is: if the Archive is working on
+   some of your requests it just waits (it is only slow); if it is working on
+   **none** of them, the script pauses and stops right away. In any case it stops
+   after 45 minutes without progress. It keeps the waiting jobs and marks nothing as
+   failed: run it again later and it continues. At the start of a run it also shows
+   your account's limits (free capture slots, today's captures and status checks).
 
 Everything is written to a folder named after the site, next to the script.
 If you stop it (Ctrl+C, closed terminal, daily limit), **run it again and it
@@ -254,6 +258,7 @@ They are plain constants at the top of `wayback_bulk_save.py`:
 | `CAPTURE_SCREENSHOT` | `False` | Ask the Archive to also take a screenshot (useful to see what it saw on a dynamic site) |
 | `SPN_MAX_IN_FLIGHT` | 150 | Most accepted-but-unconfirmed requests allowed at once |
 | `SPN_STALL_MINUTES` | 45 | Pause the run if requests are waiting but none finishes for this long |
+| `SPN_STALL_CHECK_MINUTES` | 10 | After this long with no job finishing, ask the Archive whether it is processing any of your requests (none = stop now) |
 | `SPN_VERIFY_PROGRESS_EVERY` | 25 | Show a progress line every N status checks |
 
 ## 12. Rules of use (please read)

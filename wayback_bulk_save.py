@@ -216,6 +216,8 @@ SPN_MAX_IN_FLIGHT = 150           # accepted jobs allowed to wait for confirmati
 SPN_REAP_EVERY = 25               # after every N URLs sent, check the oldest waiting jobs
 SPN_REAP_CHECKS = 40              # how many of the oldest waiting jobs to check each time
 SPN_STALL_MINUTES = 45            # waiting jobs but none finished for this long: pause and stop
+SPN_STALL_CHECK_MINUTES = 10      # after this long with no job finishing, ask the Archive if it is
+                                  # processing anything of yours (0 = it is not: stop right away)
 
 CAPTURE_SCREENSHOT = False   # takes a screenshot of each saved page (like the browser extension does)
 CAPTURE_OUTLINKS = False    # False because this script already maps every page via
@@ -935,6 +937,38 @@ class ArchiveStalled(Exception):
     """Jobs are waiting at the Archive, but none has finished for too long."""
 
 
+def get_user_status(access_key, secret_key):
+    """Asks the Archive how busy YOUR account is (read-only). Returns a dict such as
+    {"processing": 0, "available": 3, "daily_captures": 91, "daily_captures_limit": 30000,
+     "daily_status": 838, "daily_status_limit": 70000}, or None if it could not be read.
+    "processing" = captures of yours running right now; "available" = free slots."""
+    req = urllib.request.Request(
+        "https://web.archive.org/save/status/user",
+        headers={**HEADERS, "Accept": "application/json",
+                 "Authorization": f"LOW {access_key}:{secret_key}"},
+        method="GET",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30, context=SSL_CONTEXT) as resp:
+            data = json.loads(resp.read().decode(errors="ignore"))
+        return data if isinstance(data, dict) else None
+    except Exception:
+        return None
+
+
+def describe_user_status(st):
+    """One readable line about the account's limits."""
+    parts = []
+    if st.get("available") is not None and st.get("processing") is not None:
+        total = st["available"] + st["processing"]
+        parts.append(f"{st['processing']} of {total} capture slots busy")
+    if st.get("daily_captures") is not None:
+        parts.append(f"captures today {st['daily_captures']}/{st.get('daily_captures_limit', '?')}")
+    if st.get("daily_status") is not None:
+        parts.append(f"status checks today {st['daily_status']}/{st.get('daily_status_limit', '?')}")
+    return " | ".join(parts)
+
+
 def check_job_status_once(job_id, access_key, secret_key):
     """
     A single check (no loop/waiting) of https://web.archive.org/save/status/{job_id}.
@@ -1554,8 +1588,8 @@ def process_site():
     try:
         _process_site_inner()
     except ArchiveStalled as e:
-        print(c_err(f"\nThe Archive accepted the requests but has not finished any of them for "
-                    f"{SPN_STALL_MINUTES} minutes, so the run was paused."))
+        print(c_err("\nThe Archive accepted the requests but is not finishing them, so the run "
+                    "was paused."))
         print(c_warn(f"  {e}"))
         print(c_warn("  Nothing was lost and nothing was marked as failed: the waiting jobs are kept. "
                      "The Archive is probably busy. Run this script again later (in an hour or more) "
@@ -1980,6 +2014,10 @@ def _process_site_inner():
                 if stuck:
                     print(c_warn("\nEvery job in the sample is still 'pending' at the Archive after "
                                  "hours, so they look stuck and will probably never finish."))
+                    acct = get_user_status(ACCESS_KEY, SECRET_KEY)
+                    if acct and acct.get("processing") == 0:
+                        print(c_warn("  The Archive also says it is not processing any of your "
+                                     "requests right now (processing = 0)."))
                     try:
                         answer = input(c_info(f"Drop these {len(pending_jobs_on_disk)} jobs and send "
                                               f"their URLs again? [Y/n]: ")).strip().lower()
@@ -2000,7 +2038,7 @@ def _process_site_inner():
 
     already_persisted_job_ids = set()
     early_failed = []   # URLs whose job ended in an error while we were still sending
-    progress = {"last": time.time(), "started": time.time(), "confirmed": 0}
+    progress = {"last": time.time(), "started": time.time(), "confirmed": 0, "asked": 0}
 
     def on_job_resolved(item, ok, info):
         """Called the moment each job is confirmed (success or a final error).
@@ -2056,9 +2094,30 @@ def _process_site_inner():
         return finished
 
     def check_stall():
-        """Raises ArchiveStalled when jobs are waiting but none has finished for too long."""
-        if pending_jobs_on_disk and time.time() - progress["last"] >= SPN_STALL_MINUTES * 60:
-            raise ArchiveStalled(f"{len(pending_jobs_on_disk)} job(s) are waiting at the Archive.")
+        """Raises ArchiveStalled when jobs are waiting but the Archive is not finishing them.
+
+        After SPN_STALL_CHECK_MINUTES with no job finishing, it asks the Archive how busy
+        your account is: processing = 0 means it is not working on any of your requests
+        (stalled, stop now); processing > 0 means it is working, just slowly (keep waiting).
+        If nothing finishes for SPN_STALL_MINUTES it stops either way."""
+        if not pending_jobs_on_disk:
+            return
+        idle = time.time() - progress["last"]
+        if idle >= SPN_STALL_CHECK_MINUTES * 60 and \
+                time.time() - progress["asked"] >= SPN_STALL_CHECK_MINUTES * 60:
+            progress["asked"] = time.time()
+            st = get_user_status(ACCESS_KEY, SECRET_KEY)
+            if st is not None and st.get("processing") == 0:
+                raise ArchiveStalled(
+                    f"{len(pending_jobs_on_disk)} job(s) are waiting, no job finished for "
+                    f"{int(idle // 60)} minutes, and the Archive says it is not processing any of "
+                    f"your requests right now (processing = 0).")
+            if st is not None:
+                print(c_dim(f"     .. no job finished for {int(idle // 60)} min, but the Archive is "
+                            f"working on {st.get('processing')} of your requests: just slow, waiting."))
+        if idle >= SPN_STALL_MINUTES * 60:
+            raise ArchiveStalled(f"{len(pending_jobs_on_disk)} job(s) are waiting and none finished "
+                                 f"for {int(idle // 60)} minutes.")
 
     def wait_for_room():
         """Never lets more than SPN_MAX_IN_FLIGHT accepted-but-unconfirmed jobs pile up.
@@ -2128,6 +2187,15 @@ def _process_site_inner():
                 reap()
                 check_stall()
         return submitted, deferred
+
+    # Show how busy the account is and how much of today's allowance is left.
+    account = get_user_status(ACCESS_KEY, SECRET_KEY)
+    if account:
+        print(c_info(f"Archive account: {describe_user_status(account)}"))
+        left = (account.get("daily_captures_limit") or 0) - (account.get("daily_captures") or 0)
+        if account.get("daily_captures_limit") and len(pending_urls) > left:
+            print(c_warn(f"  !! Only {left} captures are left in today's allowance, but "
+                         f"{len(pending_urls)} URL(s) are waiting. The rest can go tomorrow."))
 
     submitted, deferred = submit_batch(pending_urls)
 
