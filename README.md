@@ -103,7 +103,10 @@ through this project, **you can ask for it to be removed and the maintainer will
 honor it.** Open a [Removal request](../../issues/new?template=removal-request.yml)
 issue. The URLs and details are removed from this repository (for personal data,
 from its history too). Snapshots already on web.archive.org belong to the Internet
-Archive and must be removed through them; the maintainer will not object.
+Archive and must be removed through them; the maintainer will not object. A snapshot
+can also contain information from other pages (for example, profile data shown inside
+a list page), so removing a URL here does not necessarily remove it from the Wayback
+Machine.
 
 ## Rules of use
 

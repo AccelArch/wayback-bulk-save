@@ -297,3 +297,7 @@ maintainer through GitHub). Note that the maintainer cannot delete snapshots
 that already exist on web.archive.org: those belong to the Internet Archive, and
 removal from there has to be requested from the Archive itself (see its
 policies at archive.org). The maintainer will not object to such a request.
+
+Note that a snapshot can also contain information from other pages (for example,
+profile data shown inside a list page), so removing a URL from this repository does
+not necessarily remove that information from the Wayback Machine.
