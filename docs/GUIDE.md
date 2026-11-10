@@ -136,6 +136,21 @@ a phone with Termux, a terminal app for Android:
    failed: run it again later and it continues. At the start of a run it also shows
    your account's limits (free capture slots, today's captures and status checks).
 
+**Reading the progress lines.** While it sends, a line like
+`.. 79 accepted job(s) waiting for confirmation, 71 confirmed in this run, about 0.9/min`
+tells you how many accepted requests are still waiting, how many the Archive has
+confirmed since this run started, and how fast. When it checks the rest, a line like
+`.. checked 25/80: 20 confirmed, 0 failed, 5 not confirmed yet` shows that pass.
+A job counted as "not confirmed yet" has not failed: the script keeps checking it.
+
+**Starting again after a long stop.** If the script finds accepted jobs from an
+earlier run that are more than 3 hours old, it checks a small sample of them. The
+Archive normally finishes a capture in minutes, so if every job in the sample is
+still "pending", they look stuck and will probably never finish. The script says so
+(and tells you if the Archive reports that it is processing none of your requests),
+then asks whether to drop those jobs and send their URLs again. Answer **Y** (the
+default) to send them again, or **n** to keep waiting for them.
+
 Everything is written to a folder named after the site, next to the script.
 If you stop it (Ctrl+C, closed terminal, daily limit), **run it again and it
 continues where it stopped**. It will not redo URLs that already succeeded.
@@ -250,7 +265,7 @@ URL is `https://web.archive.org/web/*/<url>`.
 | `host-crawling-paused` | The Archive paused that site temporarily to avoid overloading it | Waits with growing delays, retries at the end |
 | `429` / `5xx` | Rate limit or Archive overload | Waits 1, 2, 4... minutes (up to 10 min), then retries |
 | `max-daily-bandwidth` | Your account hit the daily data cap, easy to reach with large files | Stops cleanly and records `paused_daily_limit`; run again the next day |
-| Jobs stay `pending` | The Archive accepted the request but has not processed it (usually because it is busy) | Waits and sends fewer requests; after 45 minutes with no job finishing it pauses and keeps the jobs |
+| Jobs stay `pending` | The Archive accepted the request but has not processed it (usually because it is busy) | Waits and sends fewer requests; after 45 minutes with no job finishing it pauses and keeps the jobs. On a later run, jobs more than 3 hours old that are all still `pending` are offered for re-sending |
 | `Connection refused` on status checks | The Archive refuses some status requests, on and off | After 5 failures in a row it pauses (2, 4, 8, 16, 30, 30 min), then stops without losing anything |
 | Firecrawl `401` | Firecrawl key missing or wrong | Falls back to the URL-file import |
 | Firecrawl `402` | Firecrawl credits are used up | Falls back to the URL-file import |
@@ -288,6 +303,7 @@ They are plain constants at the top of `wayback_bulk_save.py`:
 | `SPN_STALL_MINUTES` | 45 | Pause the run if requests are waiting but none finishes for this long |
 | `SPN_STALL_CHECK_MINUTES` | 10 | After this long with no job finishing, ask the Archive whether it is processing any of your requests (none = stop now) |
 | `SPN_VERIFY_PROGRESS_EVERY` | 25 | Show a progress line every N status checks |
+| `SPN_STUCK_JOB_HOURS` | 3 | When starting again, accepted jobs older than this that are all still pending are considered stuck, and the script offers to send them again |
 
 ## 12. Rules of use (please read)
 

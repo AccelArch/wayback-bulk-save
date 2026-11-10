@@ -84,8 +84,9 @@ Per-site files are written to `<site_slug>/`:
 
 ## Keep a record of what you archived
 
-The per-site progress files are git-ignored. To publish a clean record of a finished
-archive instead, run:
+The per-site progress files are git-ignored. If you keep your own copy of this
+repository and want a clean record of a finished archive in it, run this on your own
+computer:
 
 ```bash
 python record_archive.py <site_folder>
@@ -93,8 +94,9 @@ python record_archive.py <site_folder>
 
 It writes `archived-sites/<site>/` with the list of every URL saved
 (`saved-urls.txt`), the capture dates, and a summary `README.md`, and refreshes the
-index in [`archived-sites/`](archived-sites/). Run it again after a resumed run to
-update the record.
+index in [`archived-sites/`](archived-sites/). Nothing is uploaded: the files are
+created next to the script, and it is up to you whether to commit and publish them.
+Run it again after a resumed run to update the record.
 
 ## Removal requests
 
