@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/python-3.9%2B-3776ab" alt="Python 3.9+">
   <img src="https://img.shields.io/badge/runs%20on-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Termux-8957e5" alt="Runs on Windows, Linux, macOS and Termux">
   <a href="docs/GUIDE.md"><img src="https://img.shields.io/badge/docs-guide-58a6ff" alt="Read the guide"></a>
+  <a href="https://github.com/AccelArch/wayback-bulk-save/actions/workflows/tests.yml"><img src="https://github.com/AccelArch/wayback-bulk-save/actions/workflows/tests.yml/badge.svg" alt="Tests: Python 3.9 to 3.14 on Linux, Windows and macOS"></a>
 </p>
 
 Save an entire website (pages **and** downloadable files) to the
