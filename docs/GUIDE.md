@@ -226,8 +226,11 @@ Be realistic about these before you start:
 - **It does not check `robots.txt`.** The Archive applies its own exclusion rules
   and does not always treat `robots.txt` the way a search engine does. A site owner
   can still ask to have pages excluded or removed from the Wayback Machine.
-- **It is not instant.** At one request every ~14 seconds, about 250 URLs per
-  hour; a site with thousands of pages takes many hours or days.
+- **It is not instant.** The script sends one request every ~14 seconds (at most
+  about 250 per hour), but the Archive finishes each capture at its own pace, and a
+  heavy page can take it minutes. In one real run on a large, heavy site, about 1
+  page per minute was confirmed. A site with thousands of pages takes many hours
+  or days.
 - **It does not create a local backup.** If you need the files on your own disk,
   use a different tool (for example `wget` or HTTrack).
 

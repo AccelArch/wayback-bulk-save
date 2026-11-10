@@ -81,6 +81,7 @@ Per-site files are written to `<site_slug>/`:
 | `url_list_<slug>.json` / `crawl_state_<slug>.json` | discovered URLs / crawl progress |
 | `skipped_too_big_<slug>.json` | files above the size cap |
 | `timeline_<slug>.txt` | human-readable start/end time of each run |
+| `timeline_<slug>.json` | the same, for scripts (`record_archive.py` reads it) |
 
 ## Keep a record of what you archived
 
