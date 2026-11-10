@@ -43,7 +43,7 @@ body:
     id: why
     attributes:
       label: Why does it matter?
-      description: For example "the site is shutting down on 2026-12-01".
+      description: For example "the site is shutting down on 2026-12-01", or "the site has never been saved in the Wayback Machine".
     validations:
       required: true
   - type: checkboxes
