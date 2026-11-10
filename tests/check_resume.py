@@ -102,6 +102,26 @@ check("6: all 6 old jobs are checked before the first new URL is sent",
 check("6: the 4 new URLs are sent afterwards and everything ends up saved",
       calls["enqueue"] == 4 and len({e["url"] for e in log if e["ok"]}) == 10)
 check("6: tells the user it is checking the old jobs first", "from the previous run first" in out)
+check("6: says how the old jobs ended: 6 of 6 finished, 6 saved, none waiting",
+      "Previous run: 6 of 6 job(s) finished (6 saved, 0 failed); 0 still waiting." in out)
+shutil.rmtree(root, ignore_errors=True)
+
+# 7. the old jobs are checked first but the Archive has not finished any: the user must be told that
+#    none finished and that they stay waiting (it must not look like they were never checked).
+out, calls, log, pending_left, root = scenario("old_waiting", 0.17, lambda j: (False, False, "pending"), [], n_new=2)
+check("7: reports 0 of 6 finished and 6 still waiting",
+      "Previous run: 0 of 6 job(s) finished (0 saved, 0 failed); 6 still waiting and will be checked again" in out)
+check("7: the report comes before the first new URL is queued",
+      "Previous run:" in out and out.index("Previous run:") < out.index("Queueing:"))
+shutil.rmtree(root, ignore_errors=True)
+
+# 8. some old jobs finish and one of them ended in an error: the report separates saved from failed
+def one_failed(j):
+    if j == "old2": return True, False, "error: target server error (HTTP status=504)"
+    return (True, True, "success") if j in ("old0", "old1") else (False, False, "pending")
+out, calls, log, pending_left, root = scenario("old_mixed", 0.17, one_failed, [], n_new=2)
+check("8: reports 3 finished (2 saved, 1 failed) and 3 still waiting",
+      "Previous run: 3 of 6 job(s) finished (2 saved, 1 failed); 3 still waiting and will be checked again" in out)
 shutil.rmtree(root, ignore_errors=True)
 
 print("\n%d/%d passed" % (sum(results), len(results)))

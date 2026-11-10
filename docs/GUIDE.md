@@ -161,7 +161,11 @@ A job counted as "not confirmed yet" has not failed: the script keeps checking i
 
 **Starting again after a stop.** If the script finds jobs from an earlier run that
 the Archive had accepted but that were never confirmed, it checks all of them once
-before it sends anything new. If those jobs are also more than 3 hours old, it first
+before it sends anything new, and then reports how that went, for example
+`Previous run: 19 of 78 job(s) finished (19 saved, 0 failed); 59 still waiting`.
+The ones still waiting are checked again while the script sends the rest. (If the
+Archive refuses several status checks in a row, the check stops early, and that is
+why not all of them finish at once.) If those jobs are also more than 3 hours old, it first
 checks a small sample of them. A capture that is still "pending" after hours is
 unusual, so if every job in the sample is still "pending", they look stuck and will
 probably never finish. The script says so (and tells you if the Archive reports that

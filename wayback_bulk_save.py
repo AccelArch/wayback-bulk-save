@@ -2216,8 +2216,15 @@ def _process_site_inner():
     # the user sees at once what became of them (the message above promises exactly that). Without
     # this they would only be checked after the first SPN_REAP_EVERY new URLs had been sent.
     if pending_jobs_on_disk:
-        print(c_info(f"Checking the {len(pending_jobs_on_disk)} job(s) from the previous run first...\n"))
-        reap(max_checks=len(pending_jobs_on_disk))
+        waiting_before = len(pending_jobs_on_disk)
+        saved_before, failed_before = progress["confirmed"], progress["failed"]
+        print(c_info(f"Checking the {waiting_before} job(s) from the previous run first...\n"))
+        reap(max_checks=waiting_before)
+        still_waiting = len(pending_jobs_on_disk)
+        print(c_info(f"Previous run: {waiting_before - still_waiting} of {waiting_before} job(s) finished "
+                     f"({progress['confirmed'] - saved_before} saved, {progress['failed'] - failed_before} failed); "
+                     f"{still_waiting} still waiting"
+                     + (" and will be checked again while the rest is sent.\n" if still_waiting else ".\n")))
 
     submitted, deferred = submit_batch(pending_urls)
 
