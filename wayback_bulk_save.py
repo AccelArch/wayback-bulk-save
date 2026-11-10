@@ -2212,6 +2212,13 @@ def _process_site_inner():
             print(c_warn(f"  !! Only {left} captures are left in today's allowance, but "
                          f"{len(pending_urls)} URL(s) are waiting. The rest can go tomorrow."))
 
+    # Jobs left over from an interrupted run: look at all of them once BEFORE sending anything new, so
+    # the user sees at once what became of them (the message above promises exactly that). Without
+    # this they would only be checked after the first SPN_REAP_EVERY new URLs had been sent.
+    if pending_jobs_on_disk:
+        print(c_info(f"Checking the {len(pending_jobs_on_disk)} job(s) from the previous run first...\n"))
+        reap(max_checks=len(pending_jobs_on_disk))
+
     submitted, deferred = submit_batch(pending_urls)
 
     if deferred:

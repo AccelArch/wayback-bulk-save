@@ -7,16 +7,17 @@ results = []
 def check(name, cond):
     results.append(bool(cond)); print(("PASS " if cond else "FAIL ") + name)
 
-def scenario(case, age_hours, old_status, answers):
+def scenario(case, age_hours, old_status, answers, n_new=0):
+    """6 jobs from an earlier run are waiting; `n_new` extra URLs have never been sent."""
     time.time, time.sleep = REAL_TIME, REAL_SLEEP
     root =tempfile.mkdtemp(prefix="wbs_" + case + "_")
     dst = os.path.join(root, "wayback_bulk_save.py"); shutil.copy(SRC, dst)
     json.dump({"access_key": "FAKEA1234", "secret_key": "FAKES1234", "firecrawl_api_key": ""},
               open(os.path.join(root, "config.json"), "w"))
     site = os.path.join(root, "old_test"); os.makedirs(site)
-    urls = [f"https://old.test/p{i}" for i in range(6)]
+    urls = [f"https://old.test/p{i}" for i in range(6 + n_new)]
     json.dump(urls, open(os.path.join(site, "url_list_old_test.json"), "w"))
-    jobs = [{"url": u, "job_id": f"old{i}", "status": 200} for i, u in enumerate(urls)]
+    jobs = [{"url": u, "job_id": f"old{i}", "status": 200} for i, u in enumerate(urls[:6])]
     pj = os.path.join(site, "pending_jobs_old_test.json")
     json.dump(jobs, open(pj, "w"))
     t = time.time() - age_hours * 3600
@@ -29,15 +30,17 @@ def scenario(case, age_hours, old_status, answers):
     clock = {"t": REAL_TIME()}
     m.time.sleep = lambda s: clock.__setitem__("t", clock["t"] + s)
     m.time.time = lambda: clock["t"]
-    calls = {"enqueue": 0, "status": []}
+    calls = {"enqueue": 0, "status": [], "order": []}
     def status(job_id, a, b):
         calls["status"].append(job_id)
+        calls["order"].append("status:" + job_id)
         if job_id.startswith("old"):
             return old_status(job_id)
         return True, True, "success"
     m.check_job_status_once = status
     def enqueue(url, a, b, max_wait_minutes=30):
         calls["enqueue"] += 1
+        calls["order"].append("enqueue")
         return True, 200, f"new{calls['enqueue']}"
     m.enqueue_to_wayback = enqueue
     m.get_user_status = lambda a, b: None
@@ -87,6 +90,18 @@ shutil.rmtree(root, ignore_errors=True)
 out, calls, log, pending_left, root = scenario("errors", 5, lambda j: (False, False, "error checking status (<urlopen error [Errno 111] Connection refused>)"), [])
 print_ok = "look stuck" not in out and calls["enqueue"] == 0
 check("5: inconclusive sample -> keeps jobs, does not requeue", print_ok)
+shutil.rmtree(root, ignore_errors=True)
+
+# 6. jobs from an earlier run AND URLs never sent: the old jobs must be checked BEFORE anything new
+#    is sent (the message "I will go straight to checking their status" has to be true).
+out, calls, log, pending_left, root = scenario("old_first", 0.17, lambda j: (True, True, "success"), [], n_new=4)
+first_enqueue = calls["order"].index("enqueue") if "enqueue" in calls["order"] else -1
+before = calls["order"][:first_enqueue] if first_enqueue >= 0 else []
+check("6: all 6 old jobs are checked before the first new URL is sent",
+      first_enqueue >= 6 and sorted(before) == sorted(f"status:old{i}" for i in range(6)))
+check("6: the 4 new URLs are sent afterwards and everything ends up saved",
+      calls["enqueue"] == 4 and len({e["url"] for e in log if e["ok"]}) == 10)
+check("6: tells the user it is checking the old jobs first", "from the previous run first" in out)
 shutil.rmtree(root, ignore_errors=True)
 
 print("\n%d/%d passed" % (sum(results), len(results)))

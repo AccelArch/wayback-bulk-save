@@ -153,13 +153,15 @@ When it checks the rest, a line like
 `.. checked 25/80: 20 confirmed, 0 failed, 5 not confirmed yet` shows that pass.
 A job counted as "not confirmed yet" has not failed: the script keeps checking it.
 
-**Starting again after a long stop.** If the script finds accepted jobs from an
-earlier run that are more than 3 hours old, it checks a small sample of them. The
-A capture that is still "pending" after hours is unusual, so if every job in the
-sample is still "pending", they look stuck and will probably never finish. The script says so
-(and tells you if the Archive reports that it is processing none of your requests),
-then asks whether to drop those jobs and send their URLs again. Answer **Y** (the
-default) to send them again, or **n** to keep waiting for them.
+**Starting again after a stop.** If the script finds jobs from an earlier run that
+the Archive had accepted but that were never confirmed, it checks all of them once
+before it sends anything new. If those jobs are also more than 3 hours old, it first
+checks a small sample of them. A capture that is still "pending" after hours is
+unusual, so if every job in the sample is still "pending", they look stuck and will
+probably never finish. The script says so (and tells you if the Archive reports that
+it is processing none of your requests), then asks whether to drop those jobs and
+send their URLs again. Answer **Y** (the default) to send them again, or **n** to
+keep waiting for them.
 
 Everything is written to a folder named after the site, next to the script.
 If you stop it (Ctrl+C, closed terminal, daily limit), **run it again and it
