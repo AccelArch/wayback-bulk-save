@@ -8,8 +8,9 @@ file of URLs" mode. This file records exactly how, so the list can be checked or
 
 ## Scope and permission
 
-- **Scope:** the public pages of one community map of the site, the Brazilian one
-  (`/town/brasil-town`): the map page, its states, its cities, and the profile page of each
+- **Scope:** the public pages of one map of the site, the Brazil map (`/town/brasil-town`).
+  The site itself is international, with maps for many countries and groups; this record
+  covers only that one: its map page, its states, its cities, and the profile page of each
   developer on it.
 - **Permission:** the site's owner approved, by e-mail on 2026-11-10, archiving these
   public pages and keeping the list of URLs in this repository. The maintainer keeps that
