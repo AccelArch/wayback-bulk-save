@@ -16,6 +16,9 @@ tool turns them into a clean record inside `archived-sites/`:
             saved-urls.txt        <- every URL confirmed saved (one per line)
             failed-urls.txt       <- URLs that never succeeded (only if any)
             info.json             <- the same facts, machine-readable
+            card.svg              <- a small picture: a pixel-art skyline whose lit windows
+                                     are the pages saved so far
+            method.md             <- how the URL list was obtained (only with --notes)
 
 Usage:
     python record_archive.py <site_folder>
@@ -23,15 +26,21 @@ Usage:
     python record_archive.py <site_folder> --out some/other/folder
     python record_archive.py <site_folder> --exclude /profile/ --exclude /user/
     python record_archive.py <site_folder> --notes how-the-urls-were-found.md
+    python record_archive.py <site_folder> --color "#c8e64a"   # accent color of card.svg
+    python record_archive.py <site_folder> --no-card
 
 Run it again later and the record is refreshed (for example after a resumed run).
 All dates are written in UTC. Uses only the Python standard library.
 """
 
 import os
+import re
 import sys
 import json
 import time
+import html
+import zlib
+import random
 import shutil
 import argparse
 import urllib.parse
@@ -105,6 +114,19 @@ def build_record(site_folder, excludes=()):
         # Fall back to the shortest URL in the log (usually the site's start page).
         site = min(tried, key=len) if tried else slug
 
+    # How many URLs the run has to save in total (the list it was given). While a run is still
+    # going, this is larger than the number of URLs tried so far.
+    total = len(tried)
+    list_path = os.path.join(site_folder, f"url_list_{slug}.json")
+    if os.path.isfile(list_path):
+        try:
+            listed = _read_json(list_path)
+            if isinstance(listed, dict):
+                listed = listed.get("urls", [])
+            total = max(total, len(listed))
+        except Exception:
+            pass
+
     started = (timeline or {}).get("first_start_ts") or (min(stamps) if stamps else None)
     finished = (timeline or {}).get("finished_ts")
     return {
@@ -113,6 +135,7 @@ def build_record(site_folder, excludes=()):
         "urls_saved": len(saved),
         "urls_failed": len(failed),
         "urls_tried": len(tried),
+        "urls_total": total,
         "urls_withheld": withheld,
         "excluded_patterns": list(excludes),
         "first_capture_ts": min(stamps) if stamps else None,
@@ -125,12 +148,114 @@ def build_record(site_folder, excludes=()):
     }
 
 
-def write_site_record(rec, out_root, notes_path=None):
+DEFAULT_ACCENT = "#c8e64a"
+
+
+def _hex_color(text):
+    """argparse type: '#c8e64a' or 'c8e64a' -> '#c8e64a'."""
+    m = re.fullmatch(r"#?([0-9a-fA-F]{6})", text.strip())
+    if not m:
+        raise argparse.ArgumentTypeError(f"not a color like #c8e64a: {text!r}")
+    return "#" + m.group(1).lower()
+
+
+def _mix(color, target, amount):
+    """Moves `color` toward `target` (both '#rrggbb') by `amount` (0..1)."""
+    a = [int(color[i:i + 2], 16) for i in (1, 3, 5)]
+    b = [int(target[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#" + "".join(f"{round(x + (y - x) * amount):02x}" for x, y in zip(a, b))
+
+
+def build_card_svg(rec, accent=DEFAULT_ACCENT):
+    """A small pixel-art skyline. Every window is one page of the list: it is lit when the page
+    is confirmed saved, dark while it is still waiting. The skyline is drawn from the site's
+    slug, so a site always gets the same one."""
+    W, H, GROUND = 800, 240, 204
+    total = rec.get("urls_total") or rec["urls_tried"]
+    saved = rec["urls_saved"]
+    progress = min(1.0, saved / total) if total else 0.0
+    rng = random.Random(zlib.crc32(rec["slug"].encode("utf-8")))
+
+    BG0, BG1, BG2, OFF, TEXT, MUTED = "#0d0d0f", "#141417", "#1c1c20", "#2a2a30", "#ececef", "#9a9aa3"
+    dark = _mix(accent, "#000000", 0.30)
+    horizon = _mix(accent, "#000000", 0.80)
+    lit_colors = [accent, accent, _mix(accent, "#000000", 0.10), _mix(accent, "#ffffff", 0.18)]
+    font = "ui-monospace,Menlo,Consolas,monospace"
+
+    buildings, x = [], 0
+    while x < W:
+        w = rng.choice([24, 28, 32, 36, 40, 44])
+        h = rng.choice([48, 64, 80, 96, 112, 128, 148])
+        shade = rng.choice([BG1, BG2, "#1a1b1f"])
+        antenna = h >= 112 and rng.random() < 0.5
+        buildings.append((x, w, h, shade, antenna))
+        x += w + rng.choice([0, 4, 4, 8])
+    windows = [(wx, wy)
+               for bx, bw, bh, _s, _a in buildings
+               for wy in range(GROUND - bh + 8, GROUND - 8, 10)
+               for wx in range(bx + 6, bx + bw - 8, 9)]
+    lit = set(rng.sample(range(len(windows)), round(len(windows) * progress)))
+
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+         f'role="img" aria-label="Pixel-art skyline: lit windows are pages saved to the Wayback Machine">',
+         f'<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{BG0}"/>'
+         f'<stop offset="0.62" stop-color="{BG1}"/><stop offset="1" stop-color="{horizon}"/></linearGradient></defs>',
+         f'<rect width="{W}" height="{H}" fill="url(#sky)"/>']
+    for _ in range(34):
+        sx, sy = rng.randrange(440, W - 8, 4), rng.randrange(8, 70, 4)
+        s.append(f'<rect x="{sx}" y="{sy}" width="2" height="2" fill="{_mix(accent, "#ffffff", 0.6)}" '
+                 f'opacity="{rng.choice([0.35, 0.55, 0.8])}"/>')
+    for bx, bw, bh, shade, antenna in buildings:
+        top = GROUND - bh
+        s.append(f'<rect x="{bx}" y="{top}" width="{bw}" height="{bh}" fill="{shade}"/>')
+        s.append(f'<rect x="{bx}" y="{top}" width="{bw}" height="2" fill="{dark}" opacity="0.35"/>')
+        if antenna:
+            s.append(f'<rect x="{bx + bw // 2 - 1}" y="{top - 12}" width="2" height="12" fill="{shade}"/>')
+            s.append(f'<rect x="{bx + bw // 2 - 2}" y="{top - 14}" width="4" height="3" fill="{accent}"/>')
+    for i, (wx, wy) in enumerate(windows):
+        fill = rng.choice(lit_colors) if i in lit else OFF
+        s.append(f'<rect x="{wx}" y="{wy}" width="4" height="4" fill="{fill}"/>')
+
+    s.append(f'<rect x="0" y="{GROUND}" width="{W}" height="{H - GROUND}" fill="{BG0}"/>')
+    s.append(f'<rect x="0" y="{GROUND + 12}" width="{W}" height="16" fill="{BG2}"/>')
+    for dx in range(8, W, 40):
+        s.append(f'<rect x="{dx}" y="{GROUND + 19}" width="20" height="2" fill="{accent}" opacity="0.85"/>')
+
+    name = re.sub(r"^https?://", "", rec["site"]).rstrip("/")
+    if len(name) > 56:
+        name = name[:55] + "…"
+    size = max(10, min(20, int(372 / (0.6 * len(name))))) if name else 20
+    last = time.strftime("%Y-%m-%d", time.gmtime(rec["last_capture_ts"])) if rec.get("last_capture_ts") else ""
+    credit = "Wayback Bulk Save" + (f" · {last}" if last else "")
+    s += [f'<rect x="20" y="20" width="410" height="92" fill="{BG0}" opacity="0.72"/>',
+          f'<rect x="20" y="20" width="3" height="92" fill="{accent}"/>',
+          f'<text x="38" y="50" font-family="{font}" font-size="{size}" font-weight="700" fill="{accent}">'
+          f'{html.escape(name)}</text>',
+          f'<text x="38" y="76" font-family="{font}" font-size="14" fill="{TEXT}">'
+          f'{saved:,} of {total:,} pages saved</text>',
+          f'<text x="38" y="98" font-family="{font}" font-size="12" fill="{MUTED}">{html.escape(credit)}</text>',
+          f'<rect x="552" y="20" width="228" height="48" fill="{BG0}" opacity="0.72"/>',
+          f'<rect x="566" y="31" width="6" height="6" fill="{accent}"/>',
+          f'<text x="580" y="38" font-family="{font}" font-size="12" fill="{TEXT}">lit window = page saved</text>',
+          f'<rect x="566" y="50" width="6" height="6" fill="{OFF}"/>',
+          f'<text x="580" y="57" font-family="{font}" font-size="12" fill="{TEXT}">dark window = still waiting</text>',
+          '</svg>']
+    return "\n".join(s) + "\n"
+
+
+def write_site_record(rec, out_root, notes_path=None, card=True, accent=DEFAULT_ACCENT):
     """Writes the record. `notes_path` is an optional text file (for example, how the list of
     URLs was obtained); it is copied into the record as method.md. A method.md that is already
-    in the folder is kept and linked."""
+    in the folder is kept and linked. `card` writes card.svg, the skyline picture."""
     folder = os.path.join(out_root, rec["slug"])
     os.makedirs(folder, exist_ok=True)
+
+    card_path = os.path.join(folder, "card.svg")
+    if card:
+        with open(card_path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(build_card_svg(rec, accent))
+    elif os.path.exists(card_path):
+        os.remove(card_path)
 
     method_path = os.path.join(folder, "method.md")
     if notes_path and os.path.abspath(notes_path) != os.path.abspath(method_path):
@@ -152,13 +277,14 @@ def write_site_record(rec, out_root, notes_path=None):
         f.write("\n")
 
     wayback_view = "https://web.archive.org/web/*/" + rec["site"].rstrip("/") + "/*"
-    lines = [
-        f"# {rec['site']}",
-        "",
+    lines = [f"# {rec['site']}", ""]
+    if card:
+        lines += [f"![{rec['urls_saved']} of {rec.get('urls_total') or rec['urls_tried']} pages saved](card.svg)", ""]
+    lines += [
         "| | |",
         "|---|---|",
         f"| **Site** | {rec['site']} |",
-        f"| **URLs saved** | {rec['urls_saved']} of {rec['urls_tried']} tried |",
+        f"| **URLs saved** | {rec['urls_saved']} of {rec.get('urls_total') or rec['urls_tried']} |",
     ]
     if rec.get("urls_withheld"):
         patterns = ", ".join(f"`{p}`" for p in rec.get("excluded_patterns", []))
@@ -238,6 +364,10 @@ def main():
     parser.add_argument("--notes", default=None, metavar="FILE",
                         help="a text file describing how the list of URLs was obtained; it is "
                              "copied into the record as method.md and linked from its README")
+    parser.add_argument("--color", type=_hex_color, default=DEFAULT_ACCENT, metavar="HEX",
+                        help=f"accent color of card.svg, like {DEFAULT_ACCENT} (the default)")
+    parser.add_argument("--no-card", action="store_true",
+                        help="do not write card.svg (and remove it if it is there)")
     parser.add_argument("--out", default=None,
                         help="where to write the record (default: archived-sites/ next to this script)")
     args = parser.parse_args()
@@ -248,7 +378,7 @@ def main():
     rec = build_record(args.site_folder, args.exclude)
     if args.notes and not os.path.isfile(args.notes):
         raise SystemExit(f"Could not find the notes file: {args.notes}")
-    folder = write_site_record(rec, out_root, args.notes)
+    folder = write_site_record(rec, out_root, args.notes, card=not args.no_card, accent=args.color)
     write_index(out_root)
     print(f"Recorded {rec['site']}: {rec['urls_saved']} URL(s) saved, "
           f"{rec['urls_failed']} failed.")
