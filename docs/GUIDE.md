@@ -137,10 +137,14 @@ a phone with Termux, a terminal app for Android:
    your account's limits (free capture slots, today's captures and status checks).
 
 **Reading the progress lines.** While it sends, a line like
-`.. 79 accepted job(s) waiting for confirmation, 71 confirmed in this run, about 0.9/min`
+`.. 79 accepted job(s) waiting for confirmation, 71 confirmed in this run, 2 failed, about 0.9/min`
 (the numbers are only an illustration) tells you how many accepted requests are
-still waiting, how many the Archive has confirmed since this run started, and the
-rate so far. When it checks the rest, a line like
+still waiting, how many the Archive has really saved since this run started
+("confirmed"), how many ended in an error ("failed", shown only when there are
+some; they are sent again at the end), and the rate of the confirmed ones so far.
+The number of requests already sent is always larger than the confirmed ones,
+because the Archive finishes each capture some time after accepting the request.
+When it checks the rest, a line like
 `.. checked 25/80: 20 confirmed, 0 failed, 5 not confirmed yet` shows that pass.
 A job counted as "not confirmed yet" has not failed: the script keeps checking it.
 
