@@ -127,8 +127,13 @@ a phone with Termux, a terminal app for Android:
    it keeps sending, it checks the oldest waiting ones. If the Archive is slow, the
    script just sends less and waits; it does not send the same URL twice.
 4. **Confirm.** The script prints **OK** only when the Archive reports that the
-   snapshot exists. When everything is sent it confirms the rest. Failures are
-   retried once. If requests are waiting but **none** finishes for 10 minutes, the
+   snapshot exists. When everything is sent it confirms the rest. A job that the
+   Archive accepted but then ended in an error is sent once more at the end of the
+   run. A URL that the Archive refuses right away, when it is queued (for example
+   with an HTTP 401 or another 4xx error), is logged as failed and is **not**
+   retried in the same run: it is sent again the next time you run the script,
+   because every run sends again everything that is not confirmed as saved. If
+   requests are waiting but **none** finishes for 10 minutes, the
    script asks the Archive how busy your account is: if the Archive is working on
    some of your requests it just waits (it is only slow); if it is working on
    **none** of them, the script pauses and stops right away. In any case it stops
