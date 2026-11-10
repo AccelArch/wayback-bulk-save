@@ -137,7 +137,8 @@ Full rules and disclaimer: [Guide, section 12](docs/GUIDE.md#12-rules-of-use-ple
 ## Request an archive
 
 Want a site preserved but don't want to run this yourself? Open an issue with the
-**Request a site archive** form. Requests are reviewed manually and may be declined
+[**Request a site archive**](../../issues/new?template=request-archive.yml) form.
+Requests are public, are reviewed manually and may be declined
 (size, legality, or the daily quota).
 
 ## Credits
