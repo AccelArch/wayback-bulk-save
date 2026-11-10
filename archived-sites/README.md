@@ -1,4 +1,4 @@
-﻿# Archived sites
+# Archived sites
 
 Sites saved to the Wayback Machine with this tool, newest first. Each folder lists the exact URLs saved and when.
 
@@ -6,5 +6,4 @@ Want something removed? Removal requests are honored: see [Removal requests](../
 
 | Site | URLs saved | Last capture | Finished |
 |---|---|---|---|
-
-_No sites recorded yet._
+| [https://thegitcity.com/town/brasil-town](thegitcity_com_town_brasil_town/) | 0 | - | - |
