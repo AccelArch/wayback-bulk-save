@@ -110,6 +110,12 @@ a phone with Termux, a terminal app for Android:
 - In Android's battery settings, set Termux to **unrestricted / not optimized**.
 - Keep the Termux notification visible; it keeps the app alive.
 - If it still gets killed, nothing is lost: start it again.
+- Prefer a stable Wi-Fi connection. Mobile data shares one address between many
+  people, and the Archive can answer it with "blocked because ... suspected abusive
+  bot traffic". Switching between Wi-Fi and mobile data while the script runs also
+  changes your address and drops open connections, which shows up as `Connection
+  refused` or `timed out`. If you see that block message, do not restart the script
+  over and over: it waits and tries again by itself.
 - To import a URL file stored on your phone, run `termux-setup-storage` once and
   use a path like `/storage/shared/Download/urls.txt`.
 
@@ -278,7 +284,7 @@ URL is `https://web.archive.org/web/*/<url>`.
 | `too-many-daily-captures` | The same URL was already saved several times today (roughly 5 per day) | Reports the failure; run again tomorrow if you need another snapshot |
 | `user-session-limit` | Too many captures running at once for your account | Waits and retries |
 | `host-crawling-paused` | The Archive paused that site temporarily to avoid overloading it | Waits with growing delays, retries at the end |
-| `429` / `5xx` | Rate limit or Archive overload | Waits 1, 2, 4... minutes (up to 10 min), then retries |
+| `429` / `5xx` | Rate limit or Archive overload. A 429 that says the request was blocked as suspected bot traffic can come from a shared network, such as mobile data | Waits 1, 2, 4... minutes (up to 10 min), then retries |
 | `max-daily-bandwidth` | Your account hit the daily data cap, easy to reach with large files | Stops cleanly and records `paused_daily_limit`; run again the next day |
 | Jobs stay `pending` | The Archive accepted the request but has not processed it (usually because it is busy) | Waits and sends fewer requests; after 45 minutes with no job finishing it pauses and keeps the jobs. On a later run, jobs more than 3 hours old that are all still `pending` are offered for re-sending |
 | `Connection refused` on status checks | The Archive refuses some status requests, on and off | After 5 failures in a row it pauses (2, 4, 8, 16, 30, 30 min), then stops without losing anything |
