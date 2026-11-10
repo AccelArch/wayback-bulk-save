@@ -1,5 +1,7 @@
 # https://thegitcity.com/town/brasil-town
 
+![0 of 6,753 pages saved](card.svg)
+
 **Archiving in progress.** The list of saved URLs and the capture dates will be published
 here when the run is finished (it takes several days, because of the Archive's limits).
 
