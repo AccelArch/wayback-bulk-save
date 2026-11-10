@@ -141,6 +141,22 @@ out, st, log, pend, root, clock = scenario("final_retry", 8, fail_first_time, wi
 check("I: failures found in the final verification are sent again", st["enq"] == 16)
 check("I: every URL ends up saved", len({e['url'] for e in log if e['ok']}) == 8)
 shutil.rmtree(root, ignore_errors=True)
+# J. The progress line must count only the jobs that were really saved as "confirmed", and report the
+#    failed ones separately. (Regression test: it once counted every finished job as confirmed.)
+def two_fail_first_time(j, u, now, at, n):
+    # the script sends in alphabetical order (p0, p1, p10, p11, p2...), so p0 and p1 are in the first 5
+    if u.endswith(("/p0", "/p1")) and n == 1: return True, False, "error: target server error (HTTP status=504)"
+    return True, True, "success"
+out, st, log, pend, root, clock = scenario("progress_count", 12, two_fail_first_time)
+lines = re.findall(r"(\d+) confirmed in this run(?:, (\d+) failed)?", out)
+check("J: the first progress line counts 3 confirmed and 2 failed (5 jobs finished)", lines and lines[0] == ("3", "2"))
+check("J: the two failures are also shown one by one", out.count("FAILED ✗") == 2)
+check("J: a line without any failure has no 'failed' text", "confirmed in this run, 0 failed" not in out)
+shutil.rmtree(root, ignore_errors=True)
+out, st, log, pend, root, clock = scenario("progress_clean", 12, lambda j, u, now, at, n: (True, True, "success"))
+clean = re.findall(r"\d+ confirmed in this run(, \d+ failed)?", out)
+check("J: with no failures the line says only 'confirmed'", clean and all(g == "" for g in clean))
+shutil.rmtree(root, ignore_errors=True)
 print("\n%d/%d passed" % (sum(results), len(results)))
 sys.exit(0 if all(results) else 1)
 

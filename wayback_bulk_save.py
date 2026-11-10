@@ -2051,7 +2051,7 @@ def _process_site_inner():
 
     already_persisted_job_ids = set()
     early_failed = []   # URLs whose job ended in an error while we were still sending
-    progress = {"last": time.time(), "started": time.time(), "confirmed": 0, "asked": 0}
+    progress = {"last": time.time(), "started": time.time(), "confirmed": 0, "failed": 0, "asked": 0}
 
     def on_job_resolved(item, ok, info):
         """Called the moment each job is confirmed (success or a final error).
@@ -2082,8 +2082,10 @@ def _process_site_inner():
                 finished += 1
                 error_streak = 0
                 if ok:
+                    progress["confirmed"] += 1
                     print(c_ok("  confirmed OK ✓ ") + item["url"])
                 else:
+                    progress["failed"] += 1
                     early_failed.append(item["url"])
                     print(c_err(f"  FAILED ✗ ({info}) ") + item["url"])
             elif info.startswith("error checking status"):
@@ -2096,14 +2098,14 @@ def _process_site_inner():
                 _note_status_message(info)
             time.sleep(1)
         if finished:
-            progress["last"] = time.time()
-            progress["confirmed"] += finished
+            progress["last"] = time.time()   # any job that ended, saved or failed, means the Archive is moving
         for reason, count in reasons.items():
             print(c_warn(f"  !! {count} x {reason}"))
         minutes = (time.time() - progress["started"]) / 60
         rate = f", about {progress['confirmed'] / minutes:.1f}/min" if minutes >= 1 and progress["confirmed"] else ""
+        failed_note = f", {progress['failed']} failed" if progress["failed"] else ""
         print(c_dim(f"     .. {len(pending_jobs_on_disk)} accepted job(s) waiting for confirmation, "
-                    f"{progress['confirmed']} confirmed in this run{rate}"))
+                    f"{progress['confirmed']} confirmed in this run{failed_note}{rate}"))
         return finished
 
     def check_stall():
