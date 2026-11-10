@@ -35,6 +35,14 @@ class Suites(unittest.TestCase):
         """Sending in a window, a slow or stalled Archive, retries, account limits."""
         self.run_suite("check_window.py")
 
+    def test_record(self):
+        """record_archive.py: the public record and the optional method.md."""
+        self.run_suite("check_record.py")
+
+    def test_site_address(self):
+        """The site address prompt refuses empty or invalid answers."""
+        self.run_suite("check_site_url.py")
+
 
 if __name__ == "__main__":
     unittest.main()

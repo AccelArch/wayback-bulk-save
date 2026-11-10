@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 AccelArch
+# SPDX-License-Identifier: MIT
+# https://github.com/AccelArch/wayback-bulk-save
 """
 Wayback Bulk Save -- saves every page (and downloadable file) of a website to the
 Internet Archive's Wayback Machine (web.archive.org), using Save Page Now.
@@ -231,8 +234,9 @@ DEDUPE_BY_BASE_URL = True    # ignores variants like ?color=blue, ?size=M -- sav
 # its look / ordering / tracking) -- only these are ignored by the dedupe.
 # ANY other parameter not listed here is treated as possibly being a DIFFERENT
 # content page (e.g. ?page=2, ?category=x), so it is not removed -- this avoids
-# losing pages by mistake. (The Portuguese names -- ordenar, cor, tamanho -- are
-# kept on purpose: they are real parameter names used by Brazilian websites.)
+# losing pages by mistake. (A few names are not English -- ordenar, cor, tamanho --
+# because they were added after a real case of duplicated pages. If a site uses
+# other names for the same thing, the only effect is an extra variant URL being saved.)
 DEDUPE_SAFE_PARAMS = {
     "order_key", "orderby", "sort", "sort_by", "ordenar",   # ordering
     "cor", "color", "tamanho", "size",                       # visual product variant
@@ -339,9 +343,10 @@ HEADERS = {
                    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"),
     "Accept": ("text/html,application/xhtml+xml,application/xml;q=0.9,"
                "image/avif,image/webp,*/*;q=0.8"),
-    # Language the site is asked to serve. Change it (e.g. "en-US,en;q=0.9") if you want
-    # a site's English version instead of the Brazilian Portuguese one.
-    "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+    # Language the script asks for when it fetches pages itself (sitemap and crawl).
+    # It does not affect what the Archive captures. Change it if you want a site's
+    # version in another language.
+    "Accept-Language": "en-US,en;q=0.9",
 }
 
 
@@ -1612,10 +1617,18 @@ def _process_site_inner():
         print(c_err("Get your keys at: https://archive.org/account/s3.php"))
         return
 
-    site_base = input(c_info("Paste the site URL here (e.g. https://example.com): ")).strip()
-    site_base = site_base.rstrip("/")
-    if not site_base.startswith("http"):
-        site_base = "https://" + site_base
+    # Ask until the answer looks like a site address. An empty answer (or a stray letter)
+    # would otherwise create files with no site name inside the script's own folder.
+    while True:
+        site_base = input(c_info("Paste the site URL here (e.g. https://example.com): ")).strip()
+        site_base = site_base.rstrip("/")
+        if not site_base.startswith("http"):
+            site_base = "https://" + site_base
+        _host = urllib.parse.urlparse(site_base).netloc
+        if "." in _host and not any(ch.isspace() for ch in site_base):
+            break
+        print(c_err("That does not look like a site address. "
+                    "Type something like example.com or https://example.com/section"))
 
     mode = input(
         c_info("How should the pages be mapped?"

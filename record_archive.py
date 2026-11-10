@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 AccelArch
+# SPDX-License-Identifier: MIT
+# https://github.com/AccelArch/wayback-bulk-save
 """
 record_archive.py -- write a public, human-readable record of a finished archive.
 
@@ -19,6 +22,7 @@ Usage:
     python record_archive.py example_com
     python record_archive.py <site_folder> --out some/other/folder
     python record_archive.py <site_folder> --exclude /profile/ --exclude /user/
+    python record_archive.py <site_folder> --notes how-the-urls-were-found.md
 
 Run it again later and the record is refreshed (for example after a resumed run).
 All dates are written in UTC. Uses only the Python standard library.
@@ -28,6 +32,7 @@ import os
 import sys
 import json
 import time
+import shutil
 import argparse
 import urllib.parse
 
@@ -120,9 +125,16 @@ def build_record(site_folder, excludes=()):
     }
 
 
-def write_site_record(rec, out_root):
+def write_site_record(rec, out_root, notes_path=None):
+    """Writes the record. `notes_path` is an optional text file (for example, how the list of
+    URLs was obtained); it is copied into the record as method.md. A method.md that is already
+    in the folder is kept and linked."""
     folder = os.path.join(out_root, rec["slug"])
     os.makedirs(folder, exist_ok=True)
+
+    method_path = os.path.join(folder, "method.md")
+    if notes_path and os.path.abspath(notes_path) != os.path.abspath(method_path):
+        shutil.copyfile(notes_path, method_path)
 
     with open(os.path.join(folder, "saved-urls.txt"), "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(rec["saved"]) + ("\n" if rec["saved"] else ""))
@@ -174,7 +186,10 @@ def write_site_record(rec, out_root):
     ]
     if rec["failed"]:
         lines.append(f"- [`failed-urls.txt`](failed-urls.txt): {rec['urls_failed']} URL(s) that never succeeded")
-    lines += ["- [`info.json`](info.json): the same facts in machine-readable form", ""]
+    lines.append("- [`info.json`](info.json): the same facts in machine-readable form")
+    if os.path.isfile(method_path):
+        lines.append("- [`method.md`](method.md): how the list of URLs was obtained")
+    lines.append("")
     with open(os.path.join(folder, "README.md"), "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines))
     return folder
@@ -220,6 +235,9 @@ def main():
                         help="leave out of the public lists every URL that contains TEXT "
                              "(for example /profile/); the URLs are still counted. "
                              "Can be repeated.")
+    parser.add_argument("--notes", default=None, metavar="FILE",
+                        help="a text file describing how the list of URLs was obtained; it is "
+                             "copied into the record as method.md and linked from its README")
     parser.add_argument("--out", default=None,
                         help="where to write the record (default: archived-sites/ next to this script)")
     args = parser.parse_args()
@@ -228,7 +246,9 @@ def main():
     os.makedirs(out_root, exist_ok=True)
 
     rec = build_record(args.site_folder, args.exclude)
-    folder = write_site_record(rec, out_root)
+    if args.notes and not os.path.isfile(args.notes):
+        raise SystemExit(f"Could not find the notes file: {args.notes}")
+    folder = write_site_record(rec, out_root, args.notes)
     write_index(out_root)
     print(f"Recorded {rec['site']}: {rec['urls_saved']} URL(s) saved, "
           f"{rec['urls_failed']} failed.")
