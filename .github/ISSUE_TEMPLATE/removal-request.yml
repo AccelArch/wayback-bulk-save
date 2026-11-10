@@ -13,13 +13,15 @@ body:
         What this can do: remove URLs and details from **this repository** (including
         the `archived-sites/` records and, for personal data, the repository history).
 
-        What this cannot do: delete snapshots already on web.archive.org. Those belong to
-        the Internet Archive and have to be removed through them (see their policies at
-        archive.org). The maintainer will not object to such a request.
+        What this cannot do: **removing something from this repository does not remove it
+        from the Wayback Machine.** Snapshots already on web.archive.org belong to the
+        Internet Archive, the maintainer cannot delete them, and they have to be removed
+        through the Archive itself (see its policies at archive.org). The maintainer will
+        not object to such a request.
 
         Note that a snapshot can also contain information from other pages (for example,
-        profile data shown inside a list page), so removing a URL from this repository
-        does not necessarily remove that information from the Wayback Machine.
+        profile data shown inside a list page), so it may hold more than the URL that was
+        listed here.
   - type: input
     id: what
     attributes:

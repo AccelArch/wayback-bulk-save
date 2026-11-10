@@ -337,11 +337,13 @@ appears in something archived through this project, you can ask for it to be
 removed. The maintainer will honor the request: the URLs and details are removed
 from this repository (including the `archived-sites/` records and, for personal
 data, the repository history). Open a "Removal request" issue (or contact the
-maintainer through GitHub). Note that the maintainer cannot delete snapshots
-that already exist on web.archive.org: those belong to the Internet Archive, and
-removal from there has to be requested from the Archive itself (see its
-policies at archive.org). The maintainer will not object to such a request.
+maintainer through GitHub).
 
-Note that a snapshot can also contain information from other pages (for example,
-profile data shown inside a list page), so removing a URL from this repository does
-not necessarily remove that information from the Wayback Machine.
+**Removing something from this repository does not remove it from the Wayback
+Machine.** The maintainer cannot delete snapshots that already exist on
+web.archive.org: those belong to the Internet Archive, and removal from there has to
+be requested from the Archive itself (see its policies at archive.org). The
+maintainer will not object to such a request.
+
+A snapshot can also contain information from other pages (for example, profile data
+shown inside a list page), so it may hold more than the URL that was listed here.

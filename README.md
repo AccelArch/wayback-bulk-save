@@ -102,11 +102,14 @@ If you own a site, or your personal information appears in something archived
 through this project, **you can ask for it to be removed and the maintainer will
 honor it.** Open a [Removal request](../../issues/new?template=removal-request.yml)
 issue. The URLs and details are removed from this repository (for personal data,
-from its history too). Snapshots already on web.archive.org belong to the Internet
-Archive and must be removed through them; the maintainer will not object. A snapshot
-can also contain information from other pages (for example, profile data shown inside
-a list page), so removing a URL here does not necessarily remove it from the Wayback
-Machine.
+from its history too).
+
+**Removing something from this repository does not remove it from the Wayback
+Machine.** The snapshots on web.archive.org belong to the Internet Archive, the
+maintainer cannot delete them, and they have to be removed through the Archive itself
+(see its policies at archive.org). The maintainer will not object to such a request. A
+snapshot can also contain information from other pages (for example, profile data shown
+inside a list page), so it may hold more than the URL that was listed here.
 
 ## Tests
 
