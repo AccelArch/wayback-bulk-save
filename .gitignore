@@ -19,6 +19,12 @@ urls.csv
 url.csv
 url_list.txt
 
+# ...except the three files of a run that are handed to the record workflow (see incoming/README.md).
+# Nothing else is let through: config.json and the other state files stay ignored.
+!incoming/*/saved_urls_*.json
+!incoming/*/url_list_*.json
+!incoming/*/timeline_*.json
+
 # Local notes / python noise
 NOTES-local.md
 LEIA-ANTES.pt-BR.md

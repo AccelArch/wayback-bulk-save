@@ -1,0 +1,62 @@
+name: Update archive records
+
+# When the progress files of a run are put in incoming/<site_folder>/, this rebuilds the public
+# record in archived-sites/ (lists, README and the skyline card) with record_archive.py.
+# See incoming/README.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "incoming/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-records
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild the record of every folder in incoming/
+        run: |
+          shopt -s nullglob
+          failed=0
+          for dir in incoming/*/; do
+            dir="${dir%/}"
+            slug="$(basename "$dir")"
+            if [ ! -f "$dir/saved_urls_$slug.json" ]; then
+              echo "Skipping $dir: no saved_urls_$slug.json in it"
+              continue
+            fi
+            missing=""
+            for f in "url_list_$slug.json" "timeline_$slug.json"; do
+              [ -f "$dir/$f" ] || missing="$missing $f"
+            done
+            if [ -n "$missing" ]; then
+              echo "::error::$dir is missing:$missing"
+              failed=1
+              continue
+            fi
+            python3 record_archive.py "$dir"
+          done
+          exit $failed
+
+      - name: Commit the refreshed record
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add archived-sites
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Update archive records"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
