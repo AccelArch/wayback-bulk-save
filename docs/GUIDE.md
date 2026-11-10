@@ -66,7 +66,7 @@ files.
 
 ## 3. Running it on a phone (Termux, Android)
 
-**Why it is built to run on a phone.** Archiving a big site takes hours or days.
+**Why it is built to run on a phone.** Archiving a big site can take hours or days.
 Leaving a PC on for that long is wasteful, so the script is designed to run from
 a phone with Termux, a terminal app for Android:
 
@@ -138,15 +138,16 @@ a phone with Termux, a terminal app for Android:
 
 **Reading the progress lines.** While it sends, a line like
 `.. 79 accepted job(s) waiting for confirmation, 71 confirmed in this run, about 0.9/min`
-tells you how many accepted requests are still waiting, how many the Archive has
-confirmed since this run started, and how fast. When it checks the rest, a line like
+(the numbers are only an illustration) tells you how many accepted requests are
+still waiting, how many the Archive has confirmed since this run started, and the
+rate so far. When it checks the rest, a line like
 `.. checked 25/80: 20 confirmed, 0 failed, 5 not confirmed yet` shows that pass.
 A job counted as "not confirmed yet" has not failed: the script keeps checking it.
 
 **Starting again after a long stop.** If the script finds accepted jobs from an
 earlier run that are more than 3 hours old, it checks a small sample of them. The
-Archive normally finishes a capture in minutes, so if every job in the sample is
-still "pending", they look stuck and will probably never finish. The script says so
+A capture that is still "pending" after hours is unusual, so if every job in the
+sample is still "pending", they look stuck and will probably never finish. The script says so
 (and tells you if the Archive reports that it is processing none of your requests),
 then asks whether to drop those jobs and send their URLs again. Answer **Y** (the
 default) to send them again, or **n** to keep waiting for them.
@@ -226,11 +227,11 @@ Be realistic about these before you start:
 - **It does not check `robots.txt`.** The Archive applies its own exclusion rules
   and does not always treat `robots.txt` the way a search engine does. A site owner
   can still ask to have pages excluded or removed from the Wayback Machine.
-- **It is not instant.** The script sends one request every ~14 seconds (at most
-  about 250 per hour), but the Archive finishes each capture at its own pace, and a
-  heavy page can take it minutes. In one real run on a large, heavy site, about 1
-  page per minute was confirmed. A site with thousands of pages takes many hours
-  or days.
+- **It is not instant, and its speed is not up to the script.** The script spaces
+  its own requests (`DELAY_SECONDS`), but how long each capture takes is decided by
+  the Archive. It varies with the site, the size of its pages and how busy the
+  Archive is, so there is no speed to count on. A site with thousands of pages can
+  take hours or days.
 - **It does not create a local backup.** If you need the files on your own disk,
   use a different tool (for example `wget` or HTTrack).
 
