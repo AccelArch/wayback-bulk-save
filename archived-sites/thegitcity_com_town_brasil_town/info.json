@@ -1,15 +1,15 @@
 {
   "slug": "thegitcity_com_town_brasil_town",
   "site": "https://thegitcity.com/town/brasil-town",
-  "urls_saved": 0,
+  "urls_saved": 759,
   "urls_failed": 0,
-  "urls_tried": 0,
+  "urls_tried": 759,
   "urls_total": 6753,
   "urls_withheld": 0,
   "excluded_patterns": [],
-  "first_capture_ts": null,
-  "last_capture_ts": null,
-  "started_ts": null,
+  "first_capture_ts": 1794318533,
+  "last_capture_ts": 1794364740,
+  "started_ts": 1794317065,
   "finished_ts": null,
-  "recorded_ts": 1794331924
+  "recorded_ts": 1794365100
 }

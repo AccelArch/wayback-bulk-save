@@ -1,8 +1,20 @@
 # https://thegitcity.com/town/brasil-town
 
-![0 of 6,753 pages saved](card.svg)
+![759 of 6753 pages saved](card.svg)
 
-**Archiving in progress.** The picture above, the list of saved URLs and the capture dates
-are updated here as the run goes on. It can take several days, because of the Archive's limits.
+| | |
+|---|---|
+| **Site** | https://thegitcity.com/town/brasil-town |
+| **URLs saved** | 759 of 6753 |
+| **First capture** | 2026-11-10 13:48 UTC |
+| **Last capture** | 2026-11-11 02:39 UTC |
+| **Archiving started** | 2026-11-10 13:24 UTC |
+| **Record last updated** | 2026-11-11 02:45 UTC |
 
-- [`method.md`](method.md): how the list of 6,753 URLs was obtained, what is in it and what is not.
+View the snapshots: <https://web.archive.org/web/*/https://thegitcity.com/town/brasil-town/*>
+
+Files in this folder:
+
+- [`saved-urls.txt`](saved-urls.txt): every URL confirmed saved, one per line
+- [`info.json`](info.json): the same facts in machine-readable form
+- [`method.md`](method.md): how the list of URLs was obtained
