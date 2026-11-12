@@ -215,7 +215,7 @@ SPN_STUCK_JOB_HOURS = 3           # saved jobs older than this that are all stil
 # Sending in a WINDOW: the Archive sometimes accepts requests and then does not finish
 # them (it happens when it is busy). So the script never lets more than SPN_MAX_IN_FLIGHT
 # accepted-but-unconfirmed jobs pile up, and checks the oldest ones while it keeps sending.
-SPN_MAX_IN_FLIGHT = 150           # accepted jobs allowed to wait for confirmation at once
+SPN_MAX_IN_FLIGHT = 30            # accepted jobs allowed to wait for confirmation at once
 SPN_REAP_EVERY = 25               # after every N URLs sent, check the oldest waiting jobs
 SPN_REAP_CHECKS = 40              # how many of the oldest waiting jobs to check each time
 SPN_STALL_MINUTES = 45            # waiting jobs but none finished for this long: pause and stop

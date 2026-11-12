@@ -129,7 +129,7 @@ a phone with Termux, a terminal app for Android:
 3. **Send, in a window.** It sends the URLs to Save Page Now, one every ~14 seconds,
    pages first and heavy files last. "Accepted by the Archive" only means the
    request is in the Archive's queue, **not** that the page is saved. The script
-   never lets more than 150 accepted requests wait for confirmation at once: while
+   never lets more than 30 accepted requests wait for confirmation at once: while
    it keeps sending, it checks the oldest waiting ones. If the Archive is slow, the
    script just sends less and waits; it does not send the same URL twice.
 4. **Confirm.** The script prints **OK** only when the Archive reports that the
@@ -264,7 +264,7 @@ come from the Archive's side, and what the script does about them automatically:
 - **"Accepted" is not "saved".** When the Archive is busy it accepts requests and
   finishes them later, or not at all. The script counts a URL as saved only when the
   Archive reports success, never sends more than a set number of unconfirmed
-  requests (150 by default), and keeps checking the oldest ones while it sends.
+  requests (30 by default), and keeps checking the oldest ones while it sends.
 - **A busy Archive is handled for you.** If requests are waiting and none finishes,
   the script asks the Archive whether it is working on your requests, waits if it
   is only slow, and pauses (keeping everything) if it is not. Run it again later
@@ -324,7 +324,7 @@ They are plain constants at the top of `wayback_bulk_save.py`:
 | `URL_INCLUDE_PATTERN` | `None` | A regex; only matching URLs are saved |
 | `ALLOW_EXTERNAL_FILE_LINKS` | `True` | Also save files hosted on other domains |
 | `CAPTURE_SCREENSHOT` | `False` | Ask the Archive to also take a screenshot (useful to see what it saw on a dynamic site) |
-| `SPN_MAX_IN_FLIGHT` | 150 | Most accepted-but-unconfirmed requests allowed at once |
+| `SPN_MAX_IN_FLIGHT` | 30 | Most accepted-but-unconfirmed requests allowed at once |
 | `SPN_STALL_MINUTES` | 45 | Pause the run if requests are waiting but none finishes for this long |
 | `SPN_STALL_CHECK_MINUTES` | 10 | After this long with no job finishing, ask the Archive whether it is processing any of your requests (none = stop now) |
 | `SPN_VERIFY_PROGRESS_EVERY` | 25 | Show a progress line every N status checks |
