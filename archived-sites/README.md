@@ -6,4 +6,4 @@ Want something removed? Removal requests are honored: see [Removal requests](../
 
 | Site | URLs saved | Last capture | Finished |
 |---|---|---|---|
-| [https://thegitcity.com/town/brasil-town](thegitcity_com_town_brasil_town/) | 3256 | 2026-11-12 10:20 UTC | - |
+| [https://thegitcity.com/town/brasil-town](thegitcity_com_town_brasil_town/) | 5273 | 2026-11-13 11:09 UTC | - |
