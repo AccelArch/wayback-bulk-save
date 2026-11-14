@@ -27,6 +27,21 @@
       "start_ts": 1794412419,
       "end_ts": 1794479337,
       "status": "interrupted"
+    },
+    {
+      "start_ts": 1794479813,
+      "end_ts": 1794568346,
+      "status": "interrupted"
+    },
+    {
+      "start_ts": 1794568600,
+      "end_ts": 1794610881,
+      "status": "interrupted"
+    },
+    {
+      "start_ts": 1794624078,
+      "end_ts": 1794624132,
+      "status": "interrupted"
     }
   ]
 }
