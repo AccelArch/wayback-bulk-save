@@ -292,6 +292,7 @@ URL is `https://web.archive.org/web/*/<url>`.
 | `max-daily-bandwidth` | Your account hit the daily data cap, easy to reach with large files | Stops cleanly and records `paused_daily_limit`; run again the next day |
 | Jobs stay `pending` | The Archive accepted the request but has not processed it (usually because it is busy) | Waits and sends fewer requests; after 45 minutes with no job finishing it pauses and keeps the jobs. On a later run, jobs more than 3 hours old that are all still `pending` are offered for re-sending |
 | `Connection refused` on status checks | The Archive refuses some status requests, on and off | After 5 failures in a row it pauses (2, 4, 8, 16, 30, 30 min), then stops without losing anything |
+| Save Page Now `401` ("You need to be logged in") | Wrong keys, or the Archive blocking your connection for a while (it can follow several "suspected abusive bot traffic" answers; the keys are fine then) | After 4 in a row it stops sending and does not mark those URLs as failed. Check your keys at archive.org/account/s3.php, wait an hour or two, run again: it resumes from here |
 | Firecrawl `401` | Firecrawl key missing or wrong | Falls back to the URL-file import |
 | Firecrawl `402` | Firecrawl credits are used up | Falls back to the URL-file import |
 

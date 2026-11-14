@@ -8,7 +8,7 @@ results = []
 def check(name, cond):
     results.append(bool(cond)); print(("PASS " if cond else "FAIL ") + name, flush=True)
 
-def scenario(case, n_urls, status_fn, window=10, reap_every=5, reap_checks=8, user_status=None):
+def scenario(case, n_urls, status_fn, window=10, reap_every=5, reap_checks=8, user_status=None, enqueue_fn=None):
     """status_fn(job, url, now, submitted_at, attempt_no) -> (resolved, ok, info). Fake clock."""
     time.time, time.sleep = REAL_TIME, REAL_SLEEP
     root = tempfile.mkdtemp(prefix="wbsw_" + case + "_")
@@ -31,6 +31,9 @@ def scenario(case, n_urls, status_fn, window=10, reap_every=5, reap_checks=8, us
     st = {"enq": 0, "url_of": {}, "at": {}, "attempts": {}, "done": set(), "max_inflight": 0, "enq_urls": []}
     def enqueue(url, a, b, max_wait_minutes=30):
         st["enq"] += 1; st["enq_urls"].append(url)
+        if enqueue_fn:
+            refused = enqueue_fn(url, st["enq"])      # None = accept as usual, else (status, detail) = refuse
+            if refused: return False, refused[0], refused[1]
         job = f"job{st['enq']}"; st["url_of"][job] = url; st["at"][job] = clock["t"]
         st["attempts"][url] = st["attempts"].get(url, 0) + 1
         st["max_inflight"] = max(st["max_inflight"], len(st["url_of"]) - len(st["done"]))
@@ -157,6 +160,26 @@ out, st, log, pend, root, clock = scenario("progress_clean", 12, lambda j, u, no
 clean = re.findall(r"\d+ confirmed in this run(, \d+ failed)?", out)
 check("J: with no failures the line says only 'confirmed'", clean and all(g == "" for g in clean))
 shutil.rmtree(root, ignore_errors=True)
-print("\n%d/%d passed" % (sum(results), len(results)))
+# K. The Archive answers 401 to every new request (keys rejected, or this connection blocked): stop after a few,
+#    keep what was accepted, and do NOT write the refused URLs to the log as failures. (It once kept going
+#    through the whole list and marked every URL as failed.)
+NOT_LOGGED_IN = (401, '{"message":"You need to be logged in to use Save Page Now."}')
+out, st, log, pend, root, clock = scenario("auth_block", 30, lambda j, u, now, at, n: (False, False, "pending"),
+    window=100, reap_every=100, enqueue_fn=lambda url, n: NOT_LOGGED_IN if n > 6 else None)
+check("K: stops after 4 refusals in a row instead of trying all 30", st["enq"] == 6 + 4)
+check("K: explains what happened and what to do", "Stopping so nothing else is sent" in out and "archive.org/account/s3.php" in out)
+check("K: the refused URLs are NOT logged as failures", not [e for e in log if not e["ok"]])
+check("K: the 6 accepted jobs are kept for the next run", len(pend) == 6)
+check("K: does not go on to verify or retry", "--- Verifying" not in out and "Retrying" not in out)
+tl = json.load(open(os.path.join(root, "new_test", "timeline_new_test.json")))
+check("K: the run is recorded as paused (not finished)", tl["runs"][-1]["status"] == "paused_auth_block" and not tl.get("finished_ts"))
+shutil.rmtree(root, ignore_errors=True)
+# an isolated 401 between good answers is still an ordinary failure, logged as before
+out, st, log, pend, root, clock = scenario("auth_isolated", 12, lambda j, u, now, at, n: (True, True, "success"),
+    enqueue_fn=lambda url, n: NOT_LOGGED_IN if n in (3, 4) else None)
+bad = [e for e in log if not e["ok"]]
+check("K: two refusals in a row (below the limit) are logged as failures and the run goes on", len(bad) == 2 and "Stopping so nothing else is sent" not in out)
+shutil.rmtree(root, ignore_errors=True)
+print("\n%d/%d passed" %(sum(results), len(results)))
 sys.exit(0 if all(results) else 1)
 

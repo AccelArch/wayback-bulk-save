@@ -210,7 +210,8 @@ SPN_POLL_MAX_WAIT_MINUTES = 30    # max time waiting for the WHOLE batch to conf
 SPN_RETRY_ATTEMPTS = 1            # how many times to resend URLs that failed / were not confirmed
 SPN_VERIFY_PROGRESS_EVERY = 25    # show a progress line every N status checks
 SPN_VERIFY_ERROR_STREAK = 5       # this many failed checks in a row = the Archive is refusing us
-SPN_VERIFY_MAX_PAUSES = 6         # pauses (2, 4, 8, 16, 30, 30 min) before giving up for now
+SPN_AUTH_STREAK = 4               # this many 401/403 answers to new requests in a row = stop sending (keys rejected or connection blocked)
+SPN_VERIFY_MAX_PAUSES = 6        # pauses (2, 4, 8, 16, 30, 30 min) before giving up for now
 SPN_STUCK_JOB_HOURS = 3           # saved jobs older than this that are all still "pending" are stuck
 # Sending in a WINDOW: the Archive sometimes accepts requests and then does not finish
 # them (it happens when it is busy). So the script never lets more than SPN_MAX_IN_FLIGHT
@@ -1485,6 +1486,7 @@ _STATUS_TXT = {
     "completed": "completed (everything saved)",
     "paused_daily_limit": "paused (Internet Archive daily bandwidth limit)",
     "interrupted": "interrupted (closed / Ctrl+C / error) - can be resumed",
+    "paused_auth_block": "paused (the Archive refused the keys or blocked this connection) - can be resumed",
     "nothing_new": "nothing new to save",
     "no_urls": "no URLs found",
     "running": "running",
@@ -1579,7 +1581,7 @@ def timeline_end():
                 d["finished_estimated"] = True
         except Exception:
             pass
-    elif status == "paused_daily_limit":
+    elif status in ("paused_daily_limit", "paused_auth_block"):
         d["finished_ts"] = None  # there is still pending work
         d.pop("finished_estimated", None)
     # "interrupted": keeps the previous finish time (if there was one); only 'completed' changes the finish.
@@ -2160,12 +2162,26 @@ def _process_site_inner():
         is not lost if the script is interrupted before the verification phase."""
         submitted = []
         deferred = []
+        # 401/403 answers to new requests (keys rejected, or this connection blocked for a while). They are
+        # NOT logged right away: one alone is a normal failure, but several in a row mean the Archive is
+        # refusing us, and then marking every URL as failed would only fill the log with noise.
+        auth_streak = []
+
+        def flush_auth_streak():
+            if auth_streak:
+                for u, st_, d in auth_streak:
+                    results.append({"url": u, "status": st_, "ok": False, "detail": d})
+                auth_streak.clear()
+                with open(save_log_file, "w", encoding="utf-8") as f:
+                    json.dump(results, f, ensure_ascii=False, indent=2)
+
         for i, url in enumerate(url_batch, 1):
             wait_for_room()
             pct = int((i / len(url_batch)) * 100)
             print(c_title(f"[{i}/{len(url_batch)} - {pct}%]") + f" {label}: {url}")
             accepted, status, job_id_or_detail = enqueue_to_wayback(url, ACCESS_KEY, SECRET_KEY)
             if accepted:
+                flush_auth_streak()
                 print(c_dim(f"  -> accepted by the Archive, not saved yet (job {job_id_or_detail})"))
                 entry = {"url": url, "job_id": job_id_or_detail, "status": status}
                 submitted.append(entry)
@@ -2176,6 +2192,27 @@ def _process_site_inner():
             else:
                 is_temp_timeout = isinstance(job_id_or_detail, str) and job_id_or_detail.startswith("TIMEOUT_TEMP::")
                 detail = job_id_or_detail.split("TIMEOUT_TEMP::", 1)[-1] if is_temp_timeout else job_id_or_detail
+                if status in (401, 403) and not is_temp_timeout:
+                    print(c_err(f"  -> status={status} FAILED TO QUEUE ✗ ({detail})"))
+                    auth_streak.append((url, status, detail))
+                    if len(auth_streak) >= SPN_AUTH_STREAK:
+                        # Not logged as failures: the next run sends these URLs again from the start.
+                        print(c_warn(f"\n  !! The Archive answered {status} (\"not logged in\") to {len(auth_streak)} requests "
+                                     f"in a row. Either the keys in config.json are wrong, or the Archive is blocking this "
+                                     f"connection for a while (it does this after several \"suspected abusive bot traffic\" "
+                                     f"answers, and the keys are not the problem then). Stopping so nothing else is sent "
+                                     f"or marked as failed.\n"
+                                     f"  Check your keys at https://archive.org/account/s3.php, then wait an hour or two and "
+                                     f"run the script again: it resumes from here. Jobs already accepted are kept.\n"))
+                        auth_streak.clear()
+                        _TL["hit_auth_block"] = True
+                        break
+                    time.sleep(DELAY_SECONDS)
+                    if i % SPN_REAP_EVERY == 0:
+                        reap()
+                        check_stall()
+                    continue
+                flush_auth_streak()
                 if "max-daily-bandwidth" in str(detail):
                     # The Internet Archive's DAILY bandwidth limit was reached: trying
                     # the other URLs today only produces one failure after another (and
@@ -2201,6 +2238,7 @@ def _process_site_inner():
             if i % SPN_REAP_EVERY == 0:
                 reap()
                 check_stall()
+        flush_auth_streak()     # a short run of 401s at the very end is just a few ordinary failures
         return submitted, deferred
 
     # Show how busy the account is and how much of today's allowance is left.
@@ -2227,6 +2265,11 @@ def _process_site_inner():
                      + (" and will be checked again while the rest is sent.\n" if still_waiting else ".\n")))
 
     submitted, deferred = submit_batch(pending_urls)
+
+    if _TL.get("hit_auth_block"):
+        # Stop here: the jobs already accepted stay in the pending_jobs file and are checked next time.
+        _TL["status"] = "paused_auth_block"
+        return
 
     if deferred:
         print(c_title(f"\n{len(deferred)} URL(s) were temporarily paused (e.g. host-crawling-paused) "
