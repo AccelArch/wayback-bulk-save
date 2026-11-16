@@ -43803,5 +43803,4452 @@
     "status": 401,
     "ok": false,
     "detail": "{\"message\":\"You need to be logged in to use Save Page Now.\"}"
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=niquelandia-go",
+    "status": 401,
+    "ok": false,
+    "detail": "{\"message\":\"You need to be logged in to use Save Page Now.\"}"
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=niteroi-rj",
+    "status": 401,
+    "ok": false,
+    "detail": "{\"message\":\"You need to be logged in to use Save Page Now.\"}"
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nossa-senhora-das-dores-se",
+    "status": 401,
+    "ok": false,
+    "detail": "{\"message\":\"You need to be logged in to use Save Page Now.\"}"
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nossa-senhora-do-socorro-se",
+    "status": 401,
+    "ok": false,
+    "detail": "{\"message\":\"You need to be logged in to use Save Page Now.\"}"
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nossa-senhora-dos-remedios-pi",
+    "status": 401,
+    "ok": false,
+    "detail": "{\"message\":\"You need to be logged in to use Save Page Now.\"}"
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/zaru-dev",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828889
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nantes-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828892
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nao-me-toque-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828894
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=natal-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828897
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=navegantes-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828901
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=navirai-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828903
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nepomuceno-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828907
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=neropolis-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828910
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nilo-pecanha-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828913
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nilopolis-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828916
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=niquelandia-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828920
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=niteroi-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828934
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nossa-senhora-das-dores-se",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828936
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nossa-senhora-do-socorro-se",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828943
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nossa-senhora-dos-remedios-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828945
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-andradina-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828948
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-bandeirantes-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828950
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-bassano-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828955
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-canaa-do-norte-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828958
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-era-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828962
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-esperanca-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828965
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-friburgo-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828968
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-granada-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828970
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-iguacu-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794828975
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-iorque-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830142
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-itaberaba-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830144
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-laranjeiras-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830146
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-lima-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830148
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-odessa-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830150
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-palmeira-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830152
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-ponte-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830154
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-prata-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830156
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-resende-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830158
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-russas-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830160
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-santa-rita-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830161
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-serrana-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830163
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-tebas-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830165
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=nova-venecia-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830167
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=novo-cabrais-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830169
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=novo-hamburgo-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830171
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=novo-progresso-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830173
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=novo-repartimento-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830175
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=obidos-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830959
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=oeiras-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830961
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=olimpia-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830963
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=olinda-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830965
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=oriente-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830967
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=oriximina-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830969
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=orleans-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830971
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=osasco-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830973
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=osvaldo-cruz-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830975
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ouro-branco-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830976
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ouro-preto-do-oeste-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830978
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ouro-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830980
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ouroeste-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830982
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ouvidor-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830985
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pacaja-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830987
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pacajus-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830989
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pacatuba-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830992
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paco-do-lumiar-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830994
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pacuja-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794830997
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmacia-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831005
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmas-to",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831029
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmeira-das-missoes-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831034
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmeira-dos-indios-al",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831037
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmeirandia-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831040
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmeiras-de-goias-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831045
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmital-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831047
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paicandu-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831183
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palhoca-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831186
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmares-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831188
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palmas-de-monte-alto-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831191
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=palotina-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794831194
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=panambi-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832360
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pancas-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832362
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paracuru-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832365
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paragominas-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832367
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paraibano-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832370
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paraipaba-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832374
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paraiso-do-norte-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832376
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paraiso-do-tocantins-to",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832378
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paramirim-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832380
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paramoti-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832383
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paranagua-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832386
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paranapanema-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832388
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paranatama-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832392
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paranatinga-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832395
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paranavai-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832399
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paraopeba-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832401
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paraty-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832405
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=parauapebas-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832410
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paripiranga-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832413
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=parisi-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832416
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=parobe-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832430
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=passa-e-fica-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832434
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=passa-quatro-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832437
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=passira-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832440
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=passo-fundo-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794832443
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=parnaiba-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833301
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=parnamirim-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833303
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=passos-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833305
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pato-branco-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833307
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=patos-de-minas-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833309
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=patos-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833311
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=patrocinio-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833316
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pau-dos-ferros-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833318
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paudalho-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833320
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paulinia-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833323
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paulista-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833325
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paulistana-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833328
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=paulo-afonso-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833330
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=peabiru-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833332
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pedra-branca-do-amapari-ap",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833334
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pedra-preta-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833336
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pedrao-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833339
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pedras-de-fogo-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833341
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pedro-ii-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833343
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pedro-leopoldo-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794833345
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pelotas-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835293
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=penalva-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835297
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pendencias-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835300
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pentecoste-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835303
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pereiro-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835306
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=perobal-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835308
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=petrolina-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835310
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=petropolis-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835312
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piacabucu-al",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835314
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piau-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835316
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=picada-cafe-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835318
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=picos-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835320
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=picui-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835322
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pimenta-bueno-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835324
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pindai-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835327
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pindamonhangaba-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835329
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pinhais-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835331
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pinhalzinho-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835385
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pinhao-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835389
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pinheiro-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835395
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pinheiros-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835397
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piracema-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835402
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piracicaba-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835409
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piracuruca-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835412
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pirai-do-sul-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835416
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piraju-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835418
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piranhas-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835420
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pirapora-do-bom-jesus-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835422
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piraquara-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835424
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pirassununga-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835427
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piratini-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794835491
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pires-ferreira-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837735
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pirpirituba-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837738
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pitanga-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837740
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pitangueiras-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837744
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pitangui-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837747
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=piumhi-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837751
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=placido-de-castro-ac",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837755
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=planaltina-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837758
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=poa-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837763
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=poco-verde-se",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837767
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pocoes-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837769
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pocos-de-caldas-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837773
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pombal-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837776
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pompeia-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837786
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ponta-grossa-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837788
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ponta-pora-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837798
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pontal-do-parana-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837800
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pontal-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837803
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pontalina-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837805
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ponte-nova-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837807
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pontes-e-lacerda-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837810
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porangatu-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837812
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porteirinha-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837815
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-alegre-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837820
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-belo-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837822
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-firme-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794837825
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-franco-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838945
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-grande-ap",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838947
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-murtinho-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838949
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-rico-do-maranhao-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838952
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-seguro-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838954
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=porto-velho-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838955
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=posse-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838958
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pote-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838960
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pouso-alegre-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838961
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pouso-alto-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838963
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pradopolis-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838965
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=prados-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838967
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=praia-grande-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838969
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=pratapolis-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838971
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=presidente-epitacio-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838973
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=presidente-getulio-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838975
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=presidente-medici-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838977
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=presidente-prudente-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838979
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=presidente-venceslau-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838981
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=primavera-do-leste-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794838983
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=primavera-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840348
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=primavera-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840353
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=princesa-isabel-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840363
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=promissao-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840371
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=propria-se",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840373
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=prudentopolis-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840376
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=quartel-geral-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840380
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=quatro-barras-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840387
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=queimadas-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840393
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=queimados-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840440
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=queluz-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840444
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=querencia-do-norte-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840447
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=quintana-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840450
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=quixaba-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840455
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=quixada-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840458
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=quixeramobim-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840465
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ramilandia-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840469
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=raposa-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840479
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=reboucas-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840484
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=recife-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840492
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=redencao-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840495
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=registro-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840499
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=remanso-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840501
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=resende-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840505
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ressaquinha-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840508
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=restinga-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840512
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=retirolandia-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840515
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=riachao-do-jacuipe-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840518
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rialma-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840522
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ribeirao-das-neves-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794840525
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ribeirao-pires-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843236
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ribeirao-preto-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843238
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ribeiro-goncalves-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843240
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-bonito-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843241
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-branco-ac",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843243
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-brilhante-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843248
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-crespo-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843250
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-das-ostras-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843252
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-de-janeiro-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843254
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-do-sul-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843256
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-grande-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843258
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-paranaiba-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843260
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-pardo-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843262
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rio-verde-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843263
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rolandia-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843267
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rolim-de-moura-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843270
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=romaria-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843272
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rondon-do-para-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843273
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rondonopolis-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843275
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rosario-da-limeira-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843277
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rosario-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843282
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rubineia-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843284
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=russas-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794843286
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ruy-barbosa-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844071
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sabara-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844072
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sacramento-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844074
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salgadinho-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844076
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salgado-se",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844078
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salgueiro-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844081
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salinas-da-margarida-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844082
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salinas-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844084
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salinopolis-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844086
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salto-da-divisa-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844088
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salto-do-jacui-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844091
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salto-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844093
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=salvador-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844095
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sambaiba-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844097
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-barbara-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844099
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-barbara-d-oeste-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844100
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-da-baixa-verde-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844102
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-de-goias-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844104
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-do-rio-pardo-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794844109
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-do-capibaribe-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845508
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-do-piaui-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845510
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-do-sul-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845513
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845515
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-cruz-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845517
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-fe-do-sul-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845520
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-fe-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845524
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-filomena-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845529
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-helena-de-goias-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845531
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-helena-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845533
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-ines-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845536
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-isabel-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845538
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-luzia-d-oeste-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845541
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-luzia-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845543
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-luzia-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845545
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-maria-da-boa-vista-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845548
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-maria-de-jetiba-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845550
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-maria-do-cambuca-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845552
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-maria-do-suacui-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845555
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-maria-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845557
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-teresa-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845645
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-tereza-de-goias-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845649
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-terezinha-de-itaipu-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845653
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-terezinha-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845658
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-terezinha-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845660
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santaluz-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845662
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santana-ap",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845665
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-rita-do-pardo-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845831
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-rita-do-sapucai-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845833
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santa-rosa-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845836
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santana-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845839
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santana-de-cataguases-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794845843
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santana-de-parnaiba-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847981
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santana-do-araguaia-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847983
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santana-do-sao-francisco-se",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847985
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santarem-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847987
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santiago-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847990
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-amaro-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847993
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-anastacio-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847995
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-andre-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794847997
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-angelo-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848000
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-antonio-de-jesus-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848002
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-antonio-do-descoberto-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848004
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-antonio-do-monte-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848006
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-antonio-do-rio-abaixo-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848008
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-antonio-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848011
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santo-estevao-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848013
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santos-dumont-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848015
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=santos-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848025
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-benedito-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848028
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-bento-do-sapucai-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848034
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-bento-do-sul-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848036
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-bento-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848038
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-caetano-do-sul-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848042
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-bernardo-do-campo-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848814
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-bernardo-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848816
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-cristovao-se",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848818
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-domingos-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848820
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-francisco-de-goias-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848822
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-francisco-do-brejao-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848823
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-francisco-do-conde-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848825
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-francisco-do-piaui-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848827
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-francisco-do-sul-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848829
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-francisco-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848831
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-gabriel-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848833
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-gabriel-da-cachoeira-am",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848835
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-gabriel-do-oeste-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848837
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-gabriel-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848838
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-goncalo-do-abaete-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848840
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-goncalo-do-amarante-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848842
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-goncalo-do-amarante-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848844
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-goncalo-do-rio-abaixo-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848846
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-goncalo-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848849
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-gotardo-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794848851
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-goncalo-do-rio-preto-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849594
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jeronimo-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849596
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joao-da-boa-vista-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849599
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joao-de-meriti-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849601
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joao-del-rei-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849603
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joao-do-paraiso-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849605
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joao-do-paraiso-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849608
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joao-do-triunfo-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849610
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joaquim-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849613
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-da-varginha-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849615
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-de-mipibu-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849617
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-de-piranhas-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849619
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-de-ribamar-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849621
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-do-belmonte-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849623
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-do-jacuipe-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849626
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-do-rio-pardo-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849628
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-do-rio-preto-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849630
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-do-sabugi-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849632
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-dos-basilios-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849635
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-leopoldo-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849642
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-dos-campos-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849776
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-dos-pinhais-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849779
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-jose-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849781
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-lourenco-da-mata-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849784
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-lourenco-da-serra-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849786
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-lourenco-do-oeste-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849788
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-lourenco-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849791
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-luis-de-montes-belos-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849793
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-luis-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849795
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-luiz-do-norte-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794849797
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-luiz-rr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851182
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-marcos-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851184
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-miguel-do-guapore-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851186
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-miguel-do-oeste-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851188
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-miguel-do-tapuio-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851190
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-miguel-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851191
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-paulo-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851194
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-pedro-da-agua-branca-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851196
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-pedro-da-aldeia-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851200
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-raimundo-das-mangabeiras-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851202
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-raimundo-nonato-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851204
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-roque-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851206
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-sebastiao-do-oeste-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851209
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-sebastiao-do-passe-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851212
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-sebastiao-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851214
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-thome-das-letras-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851218
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-tiago-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851221
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-vendelino-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851223
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sapezal-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851253
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sapiranga-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851256
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sapucaia-do-sul-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851258
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sapucaia-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851260
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=saquarema-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851262
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sardoa-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851265
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sarzedo-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851270
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=saubara-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794851274
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-vicente-do-sul-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853410
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-vicente-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853413
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sape-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853415
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=saudades-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853422
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=saude-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853424
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=seabra-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853426
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=seara-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853428
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sena-madureira-ac",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853430
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=senador-canedo-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853433
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=senador-firmino-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853438
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=senador-sa-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853442
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sentinela-do-sul-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853450
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=seropedica-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853454
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serra-caiada-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853472
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serra-do-mel-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853475
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serra-do-ramalho-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853477
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serra-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853480
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serra-negra-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853487
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serra-talhada-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853490
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serrana-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853509
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serrinha-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853512
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sertanopolis-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853514
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sete-lagoas-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853515
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=severinia-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853517
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sigefredo-pacheco-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853521
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sinop-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853525
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sobral-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794853528
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=serra-azul-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855081
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=soledade-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855083
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=solonopole-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855085
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sombrio-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855087
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sorocaba-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855089
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sorriso-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855092
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=soure-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855094
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sousa-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855097
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sumare-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855100
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=surubim-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855102
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=suzano-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855107
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tabatinga-am",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855109
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tabira-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855116
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taboao-da-serra-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855122
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tacaratu-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855130
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taguai-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855183
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taguatinga-to",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855188
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taio-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855195
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taiobeiras-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855197
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taipu-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855208
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tamboril-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855221
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tangara-da-serra-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855230
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tangara-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855234
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taparuba-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855248
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tapejara-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855251
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taperoa-pb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794855261
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tapes-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857630
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taquari-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857632
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taquarituba-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857634
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taquarussu-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857647
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tasso-fragoso-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857649
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tatui-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857651
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taua-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857653
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=taubate-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857655
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tefe-am",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857657
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=teixeira-de-freitas-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857659
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=teixeiras-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857661
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=telemaco-borba-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857662
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tenente-laurentino-cruz-rn",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857664
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=teofilandia-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857666
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=teofilo-otoni-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857668
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=teresina-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857670
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=teresopolis-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857672
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=terra-boa-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857674
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=terra-roxa-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794857676
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=terra-santa-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859025
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tiangua-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859027
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tiete-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859031
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tijucas-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859035
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=timbauba-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859039
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=timon-ma",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859045
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=timoteo-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859051
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tocantins-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859055
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=toledo-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859057
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=torres-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859060
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tramandai-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859066
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tres-barras-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859070
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tres-coracoes-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859074
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tres-coroas-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859083
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tres-de-maio-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859085
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tres-lagoas-ms",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859089
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tres-marias-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859096
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=treze-tilias-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859100
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=trindade-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859109
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tubarao-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859116
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tucuma-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859121
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tucurui-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859126
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tupa-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859132
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tupanatinga-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859140
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=tuparendi-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859144
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=turmalina-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859148
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uba-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859152
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ubaira-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859157
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ubatuba-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859162
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uberaba-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859170
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uberlandia-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794859254
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ulianopolis-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861376
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=una-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861379
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=unai-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861381
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uniao-da-serra-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861384
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uniao-da-vitoria-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861389
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uniao-dos-palmares-al",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861392
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uniao-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861395
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=urania-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861399
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uruana-de-minas-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861403
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uruana-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861406
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=urubici-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861409
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=urucania-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861412
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=urucui-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861416
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=urucurituba-am",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861418
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=uruguaiana-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861421
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=urussanga-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861423
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=utinga-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861426
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=valenca-do-piaui-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861429
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=valenca-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861433
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=valente-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861436
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=valparaiso-de-goias-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861454
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vargem-grande-do-sul-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861457
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vargem-grande-paulista-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794861462
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=valentim-gentil-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862529
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=valinhos-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862531
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=varginha-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862535
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=varzea-alegre-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862544
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=varzea-grande-mt",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862547
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=varzea-paulista-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862549
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vassouras-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862551
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=venancio-aires-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862553
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ventania-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862555
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vera-cruz-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862569
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=veranopolis-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862572
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=verdejante-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862574
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vere-pr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862577
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=viana-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862579
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vicencia-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862582
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vicosa-al",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862584
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vicosa-do-ceara-ce",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862586
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vicosa-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862588
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=videira-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862591
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vila-nova-do-piaui-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862593
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vila-velha-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862595
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vilhena-ro",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862600
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=visconde-do-rio-branco-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862603
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vitoria-da-conquista-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862606
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=votorantim-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794862629
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=vitoria-es",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863422
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=volta-redonda-rj",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863424
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=votuporanga-sp",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863427
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=xanxere-sc",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863430
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=xinguara-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863432
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=xique-xique-ba",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863435
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=AC",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863440
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=AL",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863442
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=AM",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863445
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=AP",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863448
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=BA",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863450
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=CE",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863452
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=DF",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863455
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=ES",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863457
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=GO",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863460
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=MA",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863463
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=MG",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863465
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=MS",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863468
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=MT",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863470
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=PA",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794863475
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=PB",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866052
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=PE",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866073
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=PI",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866082
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=PR",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866098
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=RJ",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866108
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=RN",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866124
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=RO",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866134
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=RS",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866162
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=SC",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866164
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=SE",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866166
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=SP",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866168
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=TO",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866170
+  },
+  {
+    "url": "https://www.thegitcity.com/town/espirito-santo",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866172
+  },
+  {
+    "url": "https://www.thegitcity.com/town/fulldev",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866174
+  },
+  {
+    "url": "https://www.thegitcity.com/town/jequie-town",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866176
+  },
+  {
+    "url": "https://www.thegitcity.com/town/tech-in-rio-town",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866178
+  },
+  {
+    "url": "https://www.thegitcity.com/towns",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866180
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?uf=RR",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794866197
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/alandiegopebr",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869673
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/axolotesuite",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869675
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/bartho05",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869676
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/brenof98",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869678
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/caxias",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869680
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/coelhobenicio19-creator",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869682
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/davidevgomes",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869683
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/devcael",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869685
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/divinex10",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869687
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/eduardofontana",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869689
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/euvitor",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869690
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/gabrielnascimentoeng",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869692
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/guilhermeabreu",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869694
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/joaohpf",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869696
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/jota738",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869697
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/lhmarquesdev",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869699
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/luciano-mendesz9",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869701
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/matheusadamasceno",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869703
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/mdouglasls",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869705
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/renanarida",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794869720
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/no",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870334
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/novas",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870335
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/otavio1661",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870337
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/ronalyson",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870339
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/ryanreynald",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870340
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/samucalucas",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870342
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/shockyng",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870344
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/simulador-processual",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870346
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/somerandomviktor",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870347
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/theusvsilv",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870349
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/ticarollamas-arch",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870351
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/triusky",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870353
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/viniciusduarte28",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870354
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/vinizxbsb",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870356
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/vinual",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870358
+  },
+  {
+    "url": "https://www.thegitcity.com/dev/yurischmitzz",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870360
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=alvorada-rs",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870361
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=conceicao-dos-ouros-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870363
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=crixas-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870365
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=rubiataba-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870379
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=sao-joao-de-pirabas-pa",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870381
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=dom-inocencio-pi",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870402
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=jussara-go",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870404
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=ouro-fino-mg",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870406
+  },
+  {
+    "url": "https://www.thegitcity.com/town/brasil-town?cidade=trindade-pe",
+    "status": 200,
+    "ok": true,
+    "detail": "success",
+    "ts": 1794870424
   }
 ]
