@@ -12,9 +12,9 @@ file of URLs" mode. This file records exactly how, so the list can be checked or
   The site itself is international, with maps for many countries and groups; this record
   covers only that one: its map page, its states, its cities, and the profile page of each
   developer on it.
-- **Permission:** the site's owner approved, by e-mail on 2026-11-10, archiving these
-  public pages and keeping the list of URLs in this repository. The maintainer keeps that
-  e-mail.
+- **Permission:** the site's owner, Samuel Rizzon ([@srizzon](https://github.com/srizzon)),
+  gave permission to archive these public pages and to keep the list of URLs in this
+  repository. The maintainer keeps his e-mail.
 - **Not included:** the other community maps of the site (39 pages) and about 690
   developers who appear only on those. Whole-site archiving was not requested from the
   owner, so it was not done. See "What is not in the list" below.
