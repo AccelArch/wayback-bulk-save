@@ -1,7 +1,7 @@
 {
   "site": "https://thegitcity.com/town/brasil-town",
   "first_start_ts": 1794317065,
-  "finished_ts": 1794870425,
+  "finished_ts": 1795481405,
   "runs": [
     {
       "start_ts": 1794317065,
@@ -62,8 +62,13 @@
       "start_ts": 1794868996,
       "end_ts": 1794870425,
       "status": "completed"
+    },
+    {
+      "start_ts": 1795480233,
+      "end_ts": 1795481405,
+      "status": "completed"
     }
   ],
-  "ok_total": 6798,
-  "total": 6909
+  "ok_total": 6835,
+  "total": 6946
 }
