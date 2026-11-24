@@ -180,6 +180,7 @@ https://www.thegitcity.com/dev/alvarengajr1
 https://www.thegitcity.com/dev/alvaromic7
 https://www.thegitcity.com/dev/alvees7x
 https://www.thegitcity.com/dev/alvesflavio
+https://www.thegitcity.com/dev/alvesgabrieel
 https://www.thegitcity.com/dev/alveslim
 https://www.thegitcity.com/dev/alvesscristhian
 https://www.thegitcity.com/dev/alvezdev26
@@ -244,6 +245,7 @@ https://www.thegitcity.com/dev/andrevitor89-eng
 https://www.thegitcity.com/dev/andrewozniack
 https://www.thegitcity.com/dev/andrewtk9
 https://www.thegitcity.com/dev/andrey
+https://www.thegitcity.com/dev/andreyquerino
 https://www.thegitcity.com/dev/andreyson
 https://www.thegitcity.com/dev/andreywbs
 https://www.thegitcity.com/dev/andrigo-j
@@ -289,6 +291,7 @@ https://www.thegitcity.com/dev/antonnysobralk10-web
 https://www.thegitcity.com/dev/antuneskleber
 https://www.thegitcity.com/dev/anvi1337
 https://www.thegitcity.com/dev/aphilipti
+https://www.thegitcity.com/dev/apllamoon
 https://www.thegitcity.com/dev/apollodaniel
 https://www.thegitcity.com/dev/aquiii
 https://www.thegitcity.com/dev/aquillesf
@@ -561,12 +564,14 @@ https://www.thegitcity.com/dev/brunogoncalves99
 https://www.thegitcity.com/dev/brunohubner
 https://www.thegitcity.com/dev/brunolucassf
 https://www.thegitcity.com/dev/brunomsa
+https://www.thegitcity.com/dev/brunomsmcarvalho
 https://www.thegitcity.com/dev/brunoparreiradev
 https://www.thegitcity.com/dev/brunopbaffonso
 https://www.thegitcity.com/dev/brunoportofc
 https://www.thegitcity.com/dev/brunoproencadev
 https://www.thegitcity.com/dev/brunoqualhato
 https://www.thegitcity.com/dev/brunosantoos
+https://www.thegitcity.com/dev/brunosaraivab
 https://www.thegitcity.com/dev/brunosfredo-dev
 https://www.thegitcity.com/dev/brunosk332
 https://www.thegitcity.com/dev/brunosoudias
@@ -754,6 +759,7 @@ https://www.thegitcity.com/dev/cespedesdan
 https://www.thegitcity.com/dev/cezarpedroso
 https://www.thegitcity.com/dev/cg
 https://www.thegitcity.com/dev/cgn2222
+https://www.thegitcity.com/dev/chacalldohott-max
 https://www.thegitcity.com/dev/chagasdeveloper
 https://www.thegitcity.com/dev/chagasleandro
 https://www.thegitcity.com/dev/champlz
@@ -1029,8 +1035,10 @@ https://www.thegitcity.com/dev/derson396
 https://www.thegitcity.com/dev/dersonp2
 https://www.thegitcity.com/dev/desouzarafael
 https://www.thegitcity.com/dev/destroyerig
+https://www.thegitcity.com/dev/destypc
 https://www.thegitcity.com/dev/deuteragonistdev
 https://www.thegitcity.com/dev/dev
+https://www.thegitcity.com/dev/dev-alef
 https://www.thegitcity.com/dev/dev-alesonrobert
 https://www.thegitcity.com/dev/dev-caike
 https://www.thegitcity.com/dev/dev-edenxq7
@@ -1778,6 +1786,7 @@ https://www.thegitcity.com/dev/gabrielwelingtom
 https://www.thegitcity.com/dev/gabrielzelito
 https://www.thegitcity.com/dev/gabrimeireles
 https://www.thegitcity.com/dev/gabrlou
+https://www.thegitcity.com/dev/gabrpereira
 https://www.thegitcity.com/dev/gabryelateles
 https://www.thegitcity.com/dev/gabs1806
 https://www.thegitcity.com/dev/gabsonrogeer
@@ -1903,6 +1912,7 @@ https://www.thegitcity.com/dev/gserejo
 https://www.thegitcity.com/dev/gsklukao
 https://www.thegitcity.com/dev/gsreis89
 https://www.thegitcity.com/dev/gstuchi
+https://www.thegitcity.com/dev/gstvpires27
 https://www.thegitcity.com/dev/gstxxx
 https://www.thegitcity.com/dev/gu-simplicio
 https://www.thegitcity.com/dev/gu1fernandes
@@ -2122,6 +2132,7 @@ https://www.thegitcity.com/dev/herculispereira
 https://www.thegitcity.com/dev/hericksampaiomoney-dot
 https://www.thegitcity.com/dev/hermscoder
 https://www.thegitcity.com/dev/heronnepomuceno
+https://www.thegitcity.com/dev/herzz09
 https://www.thegitcity.com/dev/heysonsilva
 https://www.thegitcity.com/dev/hgtsz
 https://www.thegitcity.com/dev/hhhthiti
@@ -2829,6 +2840,7 @@ https://www.thegitcity.com/dev/kelvimarcos
 https://www.thegitcity.com/dev/kelvin-luan-silva-britos
 https://www.thegitcity.com/dev/kelvinlr
 https://www.thegitcity.com/dev/kelvinportela12-byte
+https://www.thegitcity.com/dev/kelvinsjesus
 https://www.thegitcity.com/dev/kelvinvenancio
 https://www.thegitcity.com/dev/kelviny-mickael
 https://www.thegitcity.com/dev/kelvis-santos
@@ -2871,6 +2883,7 @@ https://www.thegitcity.com/dev/kineforce
 https://www.thegitcity.com/dev/kiritogamesplays
 https://www.thegitcity.com/dev/kirschzao
 https://www.thegitcity.com/dev/kissedastar
+https://www.thegitcity.com/dev/kiximoto
 https://www.thegitcity.com/dev/kiyosonoda
 https://www.thegitcity.com/dev/kkademorais
 https://www.thegitcity.com/dev/kkaiooliv00
@@ -2957,6 +2970,7 @@ https://www.thegitcity.com/dev/ldmfabio
 https://www.thegitcity.com/dev/le4ndror
 https://www.thegitcity.com/dev/lealsx
 https://www.thegitcity.com/dev/lealtais
+https://www.thegitcity.com/dev/leandro-25
 https://www.thegitcity.com/dev/leandro689
 https://www.thegitcity.com/dev/leandrocarneiroo
 https://www.thegitcity.com/dev/leandrodev
@@ -3049,6 +3063,7 @@ https://www.thegitcity.com/dev/linkkkj
 https://www.thegitcity.com/dev/linustorvalds
 https://www.thegitcity.com/dev/lio308
 https://www.thegitcity.com/dev/lipe-to
+https://www.thegitcity.com/dev/lipecosta00
 https://www.thegitcity.com/dev/lipehsantos213
 https://www.thegitcity.com/dev/lipemeloni
 https://www.thegitcity.com/dev/liperrr
@@ -3265,6 +3280,7 @@ https://www.thegitcity.com/dev/luizcarvalho
 https://www.thegitcity.com/dev/luizcporto
 https://www.thegitcity.com/dev/luizdevs
 https://www.thegitcity.com/dev/luizeduardomarchi
+https://www.thegitcity.com/dev/luizeh
 https://www.thegitcity.com/dev/luizespectrum
 https://www.thegitcity.com/dev/luizfelipecguimaraes
 https://www.thegitcity.com/dev/luizfer1
@@ -3345,11 +3361,14 @@ https://www.thegitcity.com/dev/manausam
 https://www.thegitcity.com/dev/manellszl
 https://www.thegitcity.com/dev/manoel2k67
 https://www.thegitcity.com/dev/manoeldavy
+https://www.thegitcity.com/dev/manoelvolis
 https://www.thegitcity.com/dev/manoliro
 https://www.thegitcity.com/dev/mapompeo
 https://www.thegitcity.com/dev/maralto-js
 https://www.thegitcity.com/dev/marc0sramos
+https://www.thegitcity.com/dev/marcelin1555
 https://www.thegitcity.com/dev/marcellacamara
+https://www.thegitcity.com/dev/marcellbarreto
 https://www.thegitcity.com/dev/marcellonascif
 https://www.thegitcity.com/dev/marcellopps283
 https://www.thegitcity.com/dev/marcelo-01
@@ -3456,6 +3475,7 @@ https://www.thegitcity.com/dev/mateusraposo
 https://www.thegitcity.com/dev/mateusrodrigues848
 https://www.thegitcity.com/dev/mateussantosf
 https://www.thegitcity.com/dev/mateusshuh
+https://www.thegitcity.com/dev/mateussrocha
 https://www.thegitcity.com/dev/mateustostadev
 https://www.thegitcity.com/dev/mateusvanzuita
 https://www.thegitcity.com/dev/mateusvarela
@@ -3766,6 +3786,7 @@ https://www.thegitcity.com/dev/nathantavars
 https://www.thegitcity.com/dev/nathnvnn
 https://www.thegitcity.com/dev/natsfj
 https://www.thegitcity.com/dev/natsouzax
+https://www.thegitcity.com/dev/nava
 https://www.thegitcity.com/dev/nayra0
 https://www.thegitcity.com/dev/ncmine286715
 https://www.thegitcity.com/dev/ndbzika
@@ -3846,6 +3867,7 @@ https://www.thegitcity.com/dev/nomiadluck
 https://www.thegitcity.com/dev/nordeste
 https://www.thegitcity.com/dev/nordicmanx
 https://www.thegitcity.com/dev/notcostaip
+https://www.thegitcity.com/dev/notfunnyet
 https://www.thegitcity.com/dev/nova
 https://www.thegitcity.com/dev/novaisvictor
 https://www.thegitcity.com/dev/novas
@@ -3902,6 +3924,7 @@ https://www.thegitcity.com/dev/oldboy465
 https://www.thegitcity.com/dev/olegui
 https://www.thegitcity.com/dev/oliveiralcn
 https://www.thegitcity.com/dev/oliveiraski
+https://www.thegitcity.com/dev/oliverz1m
 https://www.thegitcity.com/dev/oloco
 https://www.thegitcity.com/dev/olucaslacerda
 https://www.thegitcity.com/dev/oluiixz
@@ -4035,6 +4058,7 @@ https://www.thegitcity.com/dev/paulovpinheiroo
 https://www.thegitcity.com/dev/pauloyo
 https://www.thegitcity.com/dev/pavuna
 https://www.thegitcity.com/dev/payaci
+https://www.thegitcity.com/dev/pb
 https://www.thegitcity.com/dev/pcgamerbom
 https://www.thegitcity.com/dev/pcordista
 https://www.thegitcity.com/dev/pczr
@@ -4249,6 +4273,7 @@ https://www.thegitcity.com/dev/ra-pitzsch
 https://www.thegitcity.com/dev/radsonpatrick
 https://www.thegitcity.com/dev/raf-henry
 https://www.thegitcity.com/dev/raf4br
+https://www.thegitcity.com/dev/rafa-atlas
 https://www.thegitcity.com/dev/rafa-shesoares
 https://www.thegitcity.com/dev/rafaangelao
 https://www.thegitcity.com/dev/rafaconrado
@@ -4563,6 +4588,7 @@ https://www.thegitcity.com/dev/samuelhwlima
 https://www.thegitcity.com/dev/samuelikz
 https://www.thegitcity.com/dev/samuellouren
 https://www.thegitcity.com/dev/samuelmatteuscardoso
+https://www.thegitcity.com/dev/samuelmobilia
 https://www.thegitcity.com/dev/samuelnicolas01
 https://www.thegitcity.com/dev/samuelnunex
 https://www.thegitcity.com/dev/samuelpietro
@@ -4599,6 +4625,7 @@ https://www.thegitcity.com/dev/saradepaulateixeira
 https://www.thegitcity.com/dev/saraivvv
 https://www.thegitcity.com/dev/satheler
 https://www.thegitcity.com/dev/sattler777
+https://www.thegitcity.com/dev/satysume
 https://www.thegitcity.com/dev/saulowilson
 https://www.thegitcity.com/dev/saviogodinho2002
 https://www.thegitcity.com/dev/saviokaiky
@@ -4983,6 +5010,7 @@ https://www.thegitcity.com/dev/veigaum
 https://www.thegitcity.com/dev/venci
 https://www.thegitcity.com/dev/venelouis
 https://www.thegitcity.com/dev/vesperina
+https://www.thegitcity.com/dev/vetraweb
 https://www.thegitcity.com/dev/vexotecnologia
 https://www.thegitcity.com/dev/vgdsilva
 https://www.thegitcity.com/dev/vgvsolucoes
@@ -5201,6 +5229,7 @@ https://www.thegitcity.com/dev/wanderalvess
 https://www.thegitcity.com/dev/warleymatheus
 https://www.thegitcity.com/dev/warleyzee
 https://www.thegitcity.com/dev/wbgamma
+https://www.thegitcity.com/dev/wccauan
 https://www.thegitcity.com/dev/web-will
 https://www.thegitcity.com/dev/webcarlos19
 https://www.thegitcity.com/dev/webnexo
@@ -5685,6 +5714,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=capelinha-mg
 https://www.thegitcity.com/town/brasil-town?cidade=capitao-de-campos-pi
 https://www.thegitcity.com/town/brasil-town?cidade=capitao-rs
 https://www.thegitcity.com/town/brasil-town?cidade=capitolio-mg
+https://www.thegitcity.com/town/brasil-town?cidade=capivari-de-baixo-sc
 https://www.thegitcity.com/town/brasil-town?cidade=caraguatatuba-sp
 https://www.thegitcity.com/town/brasil-town?cidade=carapicuiba-sp
 https://www.thegitcity.com/town/brasil-town?cidade=caratinga-mg
@@ -5728,6 +5758,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=chapeco-sc
 https://www.thegitcity.com/town/brasil-town?cidade=charqueada-sp
 https://www.thegitcity.com/town/brasil-town?cidade=charqueadas-rs
 https://www.thegitcity.com/town/brasil-town?cidade=chaval-ce
+https://www.thegitcity.com/town/brasil-town?cidade=chiador-mg
 https://www.thegitcity.com/town/brasil-town?cidade=cianorte-pr
 https://www.thegitcity.com/town/brasil-town?cidade=cicero-dantas-ba
 https://www.thegitcity.com/town/brasil-town?cidade=cidade-ocidental-go
@@ -5766,6 +5797,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=cortes-pe
 https://www.thegitcity.com/town/brasil-town?cidade=corumba-ms
 https://www.thegitcity.com/town/brasil-town?cidade=cosmopolis-sp
 https://www.thegitcity.com/town/brasil-town?cidade=cotia-sp
+https://www.thegitcity.com/town/brasil-town?cidade=coxim-ms
 https://www.thegitcity.com/town/brasil-town?cidade=crateus-ce
 https://www.thegitcity.com/town/brasil-town?cidade=crato-ce
 https://www.thegitcity.com/town/brasil-town?cidade=criciuma-sc
@@ -6037,6 +6069,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=japoata-se
 https://www.thegitcity.com/town/brasil-town?cidade=japonvar-mg
 https://www.thegitcity.com/town/brasil-town?cidade=jaragua-do-sul-sc
 https://www.thegitcity.com/town/brasil-town?cidade=jaragua-go
+https://www.thegitcity.com/town/brasil-town?cidade=jardim-do-serido-rn
 https://www.thegitcity.com/town/brasil-town?cidade=jarinu-sp
 https://www.thegitcity.com/town/brasil-town?cidade=jaru-ro
 https://www.thegitcity.com/town/brasil-town?cidade=jatai-go
@@ -6119,6 +6152,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=macedonia-sp
 https://www.thegitcity.com/town/brasil-town?cidade=maceio-al
 https://www.thegitcity.com/town/brasil-town?cidade=machadinho-d-oeste-ro
 https://www.thegitcity.com/town/brasil-town?cidade=machado-mg
+https://www.thegitcity.com/town/brasil-town?cidade=mae-d-agua-pb
 https://www.thegitcity.com/town/brasil-town?cidade=mae-do-rio-pa
 https://www.thegitcity.com/town/brasil-town?cidade=mafra-sc
 https://www.thegitcity.com/town/brasil-town?cidade=magalhaes-barata-pa
@@ -6126,6 +6160,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=mage-rj
 https://www.thegitcity.com/town/brasil-town?cidade=mairipotaba-go
 https://www.thegitcity.com/town/brasil-town?cidade=malacacheta-mg
 https://www.thegitcity.com/town/brasil-town?cidade=mallet-pr
+https://www.thegitcity.com/town/brasil-town?cidade=mambore-pr
 https://www.thegitcity.com/town/brasil-town?cidade=manacapuru-am
 https://www.thegitcity.com/town/brasil-town?cidade=manaus-am
 https://www.thegitcity.com/town/brasil-town?cidade=mandaguacu-pr
@@ -6244,6 +6279,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=nova-santa-rita-rs
 https://www.thegitcity.com/town/brasil-town?cidade=nova-serrana-mg
 https://www.thegitcity.com/town/brasil-town?cidade=nova-tebas-pr
 https://www.thegitcity.com/town/brasil-town?cidade=nova-venecia-es
+https://www.thegitcity.com/town/brasil-town?cidade=novo-airao-am
 https://www.thegitcity.com/town/brasil-town?cidade=novo-cabrais-rs
 https://www.thegitcity.com/town/brasil-town?cidade=novo-hamburgo-rs
 https://www.thegitcity.com/town/brasil-town?cidade=novo-progresso-pa
@@ -6699,6 +6735,7 @@ https://www.thegitcity.com/town/brasil-town?cidade=treze-tilias-sc
 https://www.thegitcity.com/town/brasil-town?cidade=trindade-go
 https://www.thegitcity.com/town/brasil-town?cidade=trindade-pe
 https://www.thegitcity.com/town/brasil-town?cidade=tubarao-sc
+https://www.thegitcity.com/town/brasil-town?cidade=tucano-ba
 https://www.thegitcity.com/town/brasil-town?cidade=tucuma-pa
 https://www.thegitcity.com/town/brasil-town?cidade=tucurui-pa
 https://www.thegitcity.com/town/brasil-town?cidade=tupa-sp
